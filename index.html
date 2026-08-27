@@ -6,20 +6,26 @@
 
 <title>Cute-moji ♡</title>
 
+<!-- かわいい日本語Webフォント -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Yomogi&display=swap" rel="stylesheet">
+
 <style>
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background: #fff6fa;
-  color: #6d5963;
+  background:
+    radial-gradient(circle at 10% 10%, #ffe5ef 0 2px, transparent 3px),
+    #fff8fb;
+  color: #6f5964;
   font-family:
-    "Hiragino Maru Gothic ProN",
-    "Yu Gothic",
-    "YuGothic",
-    "Meiryo",
+    "Zen Maru Gothic",
     sans-serif;
 }
 
@@ -34,176 +40,186 @@ header {
   margin-bottom: 22px;
 }
 
-header .sub {
-  color: #d29ab0;
+.logo-small {
+  color: #d39ab1;
   font-size: 11px;
   letter-spacing: 3px;
 }
 
-header h1 {
+h1 {
   margin: 6px 0;
-  color: #c77e9b;
+  color: #c9799a;
+  font-family: "Mochiy Pop One", sans-serif;
   font-size: 30px;
 }
 
 header p {
   margin: 0;
-  color: #ad8c9a;
+  color: #ad8999;
   font-size: 12px;
 }
 
 .card {
-  background: #ffffff;
-  border: 1px solid #f0dce5;
-  border-radius: 24px;
+  background: rgba(255,255,255,.95);
+  border: 1px solid #f1dce6;
+  border-radius: 25px;
   padding: 20px;
   margin-bottom: 16px;
-  box-shadow: 0 7px 22px rgba(190,130,160,.08);
+  box-shadow: 0 8px 25px rgba(190,130,160,.08);
 }
 
 .label {
   display: block;
-  margin-bottom: 9px;
-  color: #b87692;
-  font-size: 13px;
+  color: #b87591;
   font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 9px;
 }
 
 textarea {
   width: 100%;
-  min-height: 100px;
+  min-height: 105px;
   padding: 14px;
-  border: 1px solid #eed8e2;
-  border-radius: 16px;
   resize: vertical;
+  border: 1px solid #efd8e3;
+  border-radius: 17px;
   outline: none;
   background: #fffafd;
-  color: #6d5963;
+  color: #6e5863;
+  font-family: "Zen Maru Gothic", sans-serif;
   font-size: 16px;
-  font-family: inherit;
+  line-height: 1.7;
 }
 
 textarea:focus {
-  border-color: #d69db6;
+  border-color: #d89db5;
 }
 
-.controls {
-  display: grid;
-  gap: 15px;
+.control {
   margin-top: 17px;
 }
 
 .control-title {
   display: block;
   margin-bottom: 7px;
+  color: #ad718d;
   font-size: 12px;
-  color: #ad7a91;
   font-weight: bold;
 }
 
-select,
-input[type="color"],
-input[type="range"] {
-  width: 100%;
-}
-
 select {
+  width: 100%;
   padding: 11px;
   border: 1px solid #eed8e2;
-  border-radius: 12px;
+  border-radius: 13px;
   background: #fffafd;
-  color: #6d5963;
+  color: #6e5863;
+  font-family: inherit;
 }
 
-.color-row {
+.row {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+input[type="range"] {
+  flex: 1;
+  accent-color: #d89bb4;
 }
 
 input[type="color"] {
   width: 52px;
   height: 38px;
   padding: 2px;
-  border: 1px solid #ead1dd;
+  border: 1px solid #ead2dd;
   border-radius: 10px;
   background: white;
 }
 
-.range-value {
-  font-size: 12px;
-  color: #b47791;
-  min-width: 35px;
+.value {
+  width: 45px;
   text-align: right;
+  font-size: 12px;
+  color: #b27690;
 }
 
 .check {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-top: 17px;
   font-size: 13px;
-  color: #806b74;
 }
 
 .check input {
-  accent-color: #d69db6;
+  accent-color: #d596b0;
 }
 
-.preview-wrap {
+.preview {
+  width: 100%;
+  overflow: hidden;
   text-align: center;
 }
 
 canvas {
+  width: 100%;
   max-width: 100%;
   height: auto;
-  border-radius: 16px;
+  border-radius: 17px;
+
   background-image:
-    linear-gradient(45deg, #f4e9ee 25%, transparent 25%),
-    linear-gradient(-45deg, #f4e9ee 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #f4e9ee 75%),
-    linear-gradient(-45deg, transparent 75%, #f4e9ee 75%);
+    linear-gradient(45deg, #f2e7ec 25%, transparent 25%),
+    linear-gradient(-45deg, #f2e7ec 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #f2e7ec 75%),
+    linear-gradient(-45deg, transparent 75%, #f2e7ec 75%);
+
   background-size: 24px 24px;
-  background-position: 0 0, 0 12px, 12px -12px, -12px 0;
-  border: 1px solid #f0dce5;
+  background-position:
+    0 0,
+    0 12px,
+    12px -12px,
+    -12px 0;
+
+  border: 1px solid #efdce5;
 }
 
-.make-btn,
-.save-btn {
+button {
   width: 100%;
-  border: none;
+  border: 0;
   border-radius: 999px;
   padding: 14px;
-  margin-top: 15px;
+  margin-top: 16px;
   font-family: inherit;
   font-weight: bold;
   cursor: pointer;
 }
 
-.make-btn {
-  background: #d99db7;
+.make {
+  background: #d79ab3;
   color: white;
 }
 
-.save-btn {
-  background: #f2d4e0;
-  color: #9e657d;
+.save {
+  background: #f3d5e1;
+  color: #9d647d;
 }
 
-.note {
+.message {
+  min-height: 18px;
+  margin-top: 9px;
   text-align: center;
-  color: #b99ca8;
-  font-size: 10px;
-  line-height: 1.7;
-  margin-top: 12px;
+  color: #c17d99;
+  font-size: 11px;
 }
 
 footer {
   text-align: center;
-  color: #c8a7b5;
+  color: #c9a7b5;
   font-size: 10px;
   letter-spacing: 1px;
-  margin-top: 25px;
 }
+
 </style>
 </head>
 
@@ -212,112 +228,138 @@ footer {
 <div class="wrapper">
 
 <header>
-  <div class="sub">♡ CUTE TEXT MATERIAL MAKER ♡</div>
+
+  <div class="logo-small">
+    ♡ CUTE TEXT MATERIAL MAKER ♡
+  </div>
+
   <h1>Cute-moji</h1>
-  <p>文字をかわいい画像素材にしよう 🎀</p>
+
+  <p>
+    文字をかわいい画像素材にしよう 🎀
+  </p>
+
 </header>
+
+
+<!-- 入力 -->
 
 <section class="card">
 
-  <label class="label">♡ 文字を入力</label>
+  <label class="label">
+    ♡ 文字を入力
+  </label>
 
   <textarea
-    id="textInput"
+    id="text"
     placeholder="例：お誕生日おめでとう♡"
   ></textarea>
 
-  <div class="controls">
 
-    <div>
-      <span class="control-title">♡ フォント</span>
+  <!-- フォント -->
 
-      <select id="fontSelect">
+  <div class="control">
 
-        <option value="rounded">
-          ふわふわ丸文字
-        </option>
+    <span class="control-title">
+      ♡ 文字の雰囲気
+    </span>
 
-        <option value="serif">
-          お姉さん系
-        </option>
+    <select id="font">
 
-        <option value="hand">
-          手書き風
-        </option>
+      <option value="mochiy">
+        🎀 ぷっくり量産型
+      </option>
 
-        <option value="bold">
-          ぷっくり太文字
-        </option>
+      <option value="yomogi">
+        🌷 ゆるふわ手書き
+      </option>
 
-      </select>
-    </div>
+      <option value="klee">
+        ♡ おしゃれ手書き
+      </option>
 
-    <div>
+      <option value="maru">
+        🩷 ふわふわ丸文字
+      </option>
 
-      <span class="control-title">
-        ♡ 文字サイズ
-      </span>
-
-      <div class="color-row">
-
-        <input
-          id="sizeRange"
-          type="range"
-          min="30"
-          max="130"
-          value="65"
-        >
-
-        <span
-          id="sizeValue"
-          class="range-value"
-        >
-          65px
-        </span>
-
-      </div>
-
-    </div>
-
-    <div>
-
-      <span class="control-title">
-        ♡ 文字色
-      </span>
-
-      <div class="color-row">
-
-        <input
-          id="colorPicker"
-          type="color"
-          value="#d58ca8"
-        >
-
-        <span>
-          好きな色に変更できるよ ♡
-        </span>
-
-      </div>
-
-    </div>
-
-    <label class="check">
-
-      <input
-        id="transparentCheck"
-        type="checkbox"
-        checked
-      >
-
-      背景を透明にする ♡
-
-    </label>
+    </select>
 
   </div>
 
+
+  <!-- サイズ -->
+
+  <div class="control">
+
+    <span class="control-title">
+      ♡ 文字サイズ
+    </span>
+
+    <div class="row">
+
+      <input
+        id="size"
+        type="range"
+        min="35"
+        max="120"
+        value="65"
+      >
+
+      <span
+        id="sizeValue"
+        class="value"
+      >
+        65px
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- 色 -->
+
+  <div class="control">
+
+    <span class="control-title">
+      ♡ 文字色
+    </span>
+
+    <div class="row">
+
+      <input
+        id="color"
+        type="color"
+        value="#d58ba8"
+      >
+
+      <span>
+        好きな色にできるよ ♡
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- 透明 -->
+
+  <label class="check">
+
+    <input
+      id="transparent"
+      type="checkbox"
+      checked
+    >
+
+    背景を透明にする ♡
+
+  </label>
+
+
   <button
-    class="make-btn"
-    onclick="makeImage()"
+    class="make"
+    onclick="draw()"
   >
     ♡ 画像を作る ♡
   </button>
@@ -325,35 +367,40 @@ footer {
 </section>
 
 
+<!-- プレビュー -->
+
 <section class="card">
 
   <label class="label">
     ♡ プレビュー
   </label>
 
-  <div class="preview-wrap">
+  <div class="preview">
 
     <canvas
       id="canvas"
-      width="1000"
-      height="500"
+      width="1200"
+      height="600"
     ></canvas>
 
   </div>
 
+
   <button
-    class="save-btn"
-    onclick="saveImage()"
+    class="save"
+    onclick="save()"
   >
     ♡ PNG画像として保存する ♡
   </button>
 
-  <div class="note">
-    背景を透明にすると、文字だけの素材として<br>
-    写真の上に重ねて使えるよ 🎀
-  </div>
+
+  <div
+    id="message"
+    class="message"
+  ></div>
 
 </section>
+
 
 <footer>
   made with ♡ Cute-moji
@@ -370,170 +417,73 @@ const canvas =
 const ctx =
   canvas.getContext("2d");
 
-const textInput =
-  document.getElementById("textInput");
+const text =
+  document.getElementById("text");
 
-const fontSelect =
-  document.getElementById("fontSelect");
+const font =
+  document.getElementById("font");
 
-const sizeRange =
-  document.getElementById("sizeRange");
+const size =
+  document.getElementById("size");
 
 const sizeValue =
   document.getElementById("sizeValue");
 
-const colorPicker =
-  document.getElementById("colorPicker");
+const color =
+  document.getElementById("color");
 
-const transparentCheck =
-  document.getElementById("transparentCheck");
+const transparent =
+  document.getElementById("transparent");
 
-
-sizeRange.addEventListener("input", () => {
-
-  sizeValue.textContent =
-    sizeRange.value + "px";
-
-  makeImage();
-
-});
+const message =
+  document.getElementById("message");
 
 
-textInput.addEventListener("input", makeImage);
-fontSelect.addEventListener("change", makeImage);
-colorPicker.addEventListener("input", makeImage);
-transparentCheck.addEventListener("change", makeImage);
+/* フォント名 */
 
+function getFontName() {
 
-function getFont() {
+  switch (font.value) {
 
-  const size = sizeRange.value;
+    case "mochiy":
+      return "Mochiy Pop One";
 
-  switch (fontSelect.value) {
+    case "yomogi":
+      return "Yomogi";
 
-    case "serif":
-      return `${size}px "Yu Mincho", "Hiragino Mincho ProN", serif`;
+    case "klee":
+      return "Klee One";
 
-    case "hand":
-      return `${size}px "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif`;
-
-    case "bold":
-      return `bold ${size}px "Yu Gothic", "Meiryo", sans-serif`;
+    case "maru":
+      return "Zen Maru Gothic";
 
     default:
-      return `${size}px "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif`;
+      return "Zen Maru Gothic";
 
   }
 
 }
 
 
-function makeImage() {
+/* 文字を改行 */
 
-  const text =
-    textInput.value || "ここに文字が入るよ ♡";
+function makeLines(str, maxWidth) {
 
-  ctx.clearRect(
-    0,
-    0,
-    canvas.width,
-    canvas.height
-  );
-
-
-  if (!transparentCheck.checked) {
-
-    ctx.fillStyle = "#fff7fb";
-
-    ctx.fillRect(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    );
-
-  }
-
-
-  const font =
-    getFont();
-
-  ctx.font = font;
-
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-
-  const maxWidth = 900;
-
-  const lines =
-    splitText(text, maxWidth);
-
-  const lineHeight =
-    Number(sizeRange.value) * 1.35;
-
-  const totalHeight =
-    lines.length * lineHeight;
-
-  const startY =
-    canvas.height / 2 -
-    totalHeight / 2 +
-    lineHeight / 2;
-
-
-  lines.forEach((line, index) => {
-
-    const y =
-      startY + index * lineHeight;
-
-    /*
-      ふんわりした白い縁取り
-      写真の上に載せても見やすくする
-    */
-
-    ctx.lineWidth = 12;
-
-    ctx.strokeStyle =
-      "rgba(255,255,255,0.95)";
-
-    ctx.strokeText(
-      line,
-      canvas.width / 2,
-      y
-    );
-
-
-    ctx.fillStyle =
-      colorPicker.value;
-
-    ctx.fillText(
-      line,
-      canvas.width / 2,
-      y
-    );
-
-  });
-
-}
-
-
-function splitText(text, maxWidth) {
-
-  const result = [];
+  const lines = [];
 
   let current = "";
 
-  for (const char of text) {
+  for (const char of str) {
 
     const test =
       current + char;
 
     if (
-      ctx.measureText(test).width >
-        maxWidth &&
+      ctx.measureText(test).width > maxWidth &&
       current !== ""
     ) {
 
-      result.push(current);
+      lines.push(current);
 
       current = char;
 
@@ -546,15 +496,132 @@ function splitText(text, maxWidth) {
   }
 
   if (current) {
-    result.push(current);
+    lines.push(current);
   }
 
-  return result;
+  return lines;
 
 }
 
 
-function saveImage() {
+/* 画像を描画 */
+
+async function draw() {
+
+  /*
+    Google Fontsの読み込みが
+    完了してからCanvasに描く
+  */
+
+  await document.fonts.ready;
+
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+
+  if (!transparent.checked) {
+
+    ctx.fillStyle =
+      "#fff7fb";
+
+    ctx.fillRect(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+  }
+
+
+  const fontSize =
+    Number(size.value);
+
+  const fontName =
+    getFontName();
+
+
+  ctx.font =
+    `${fontSize}px "${fontName}"`;
+
+  ctx.textAlign =
+    "center";
+
+  ctx.textBaseline =
+    "middle";
+
+
+  const input =
+    text.value.trim() ||
+    "ここに文字が入るよ ♡";
+
+
+  const lines =
+    makeLines(
+      input,
+      1050
+    );
+
+
+  const lineHeight =
+    fontSize * 1.45;
+
+
+  const totalHeight =
+    lines.length * lineHeight;
+
+
+  const startY =
+    canvas.height / 2 -
+    totalHeight / 2 +
+    lineHeight / 2;
+
+
+  lines.forEach((line, index) => {
+
+    const y =
+      startY +
+      index * lineHeight;
+
+
+    /*
+      白いふちをつける
+      → 写真に貼ったとき見やすい
+    */
+
+    ctx.lineWidth = 18;
+
+    ctx.strokeStyle =
+      "rgba(255,255,255,.95)";
+
+    ctx.strokeText(
+      line,
+      canvas.width / 2,
+      y
+    );
+
+
+    ctx.fillStyle =
+      color.value;
+
+    ctx.fillText(
+      line,
+      canvas.width / 2,
+      y
+    );
+
+  });
+
+}
+
+
+/* 保存 */
+
+function save() {
 
   const link =
     document.createElement("a");
@@ -563,14 +630,68 @@ function saveImage() {
     "Cute-moji.png";
 
   link.href =
-    canvas.toDataURL("image/png");
+    canvas.toDataURL(
+      "image/png"
+    );
 
   link.click();
+
+
+  message.textContent =
+    "保存したよ ♡";
+
+  setTimeout(() => {
+
+    message.textContent = "";
+
+  }, 2000);
 
 }
 
 
-makeImage();
+/* サイズ表示 */
+
+size.addEventListener(
+  "input",
+  () => {
+
+    sizeValue.textContent =
+      size.value + "px";
+
+    draw();
+
+  }
+);
+
+
+/* 自動更新 */
+
+text.addEventListener(
+  "input",
+  draw
+);
+
+font.addEventListener(
+  "change",
+  draw
+);
+
+color.addEventListener(
+  "input",
+  draw
+);
+
+transparent.addEventListener(
+  "change",
+  draw
+);
+
+
+/* 最初の画像 */
+
+document.fonts.ready.then(
+  draw
+);
 
 </script>
 
