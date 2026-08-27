@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Cute-moji ♡</title>
 
 <style>
@@ -12,9 +13,8 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
-  background: #fff7fb;
-  color: #6f5965;
+  background: #fff6fa;
+  color: #6d5963;
   font-family:
     "Hiragino Maru Gothic ProN",
     "Yu Gothic",
@@ -23,335 +23,554 @@ body {
     sans-serif;
 }
 
-.container {
-  width: min(92%, 600px);
-  margin: 0 auto;
-  padding: 35px 0 50px;
+.wrapper {
+  width: min(92%, 620px);
+  margin: auto;
+  padding: 28px 0 50px;
 }
 
-.header {
+header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 
-.header .small {
-  font-size: 12px;
+header .sub {
+  color: #d29ab0;
+  font-size: 11px;
   letter-spacing: 3px;
-  color: #c99caf;
 }
 
-.header h1 {
-  margin: 8px 0 5px;
-  font-size: 32px;
-  color: #c77f9b;
-  letter-spacing: 2px;
+header h1 {
+  margin: 6px 0;
+  color: #c77e9b;
+  font-size: 30px;
 }
 
-.header p {
+header p {
   margin: 0;
-  font-size: 13px;
-  color: #ad8d9c;
+  color: #ad8c9a;
+  font-size: 12px;
 }
 
 .card {
-  background: rgba(255,255,255,0.92);
-  border: 1px solid #f1dce6;
+  background: #ffffff;
+  border: 1px solid #f0dce5;
   border-radius: 24px;
-  padding: 22px;
-  margin-bottom: 18px;
-  box-shadow: 0 8px 25px rgba(190,130,160,0.08);
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 7px 22px rgba(190,130,160,.08);
 }
 
 .label {
   display: block;
-  font-size: 14px;
-  color: #b87592;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
+  color: #b87692;
+  font-size: 13px;
   font-weight: bold;
 }
 
 textarea {
   width: 100%;
-  min-height: 130px;
+  min-height: 100px;
+  padding: 14px;
+  border: 1px solid #eed8e2;
+  border-radius: 16px;
   resize: vertical;
-  border: 1px solid #efd7e2;
-  border-radius: 17px;
-  padding: 15px;
   outline: none;
   background: #fffafd;
-  color: #6d5862;
+  color: #6d5963;
   font-size: 16px;
-  line-height: 1.8;
   font-family: inherit;
 }
 
 textarea:focus {
-  border-color: #d9a2b8;
-  box-shadow: 0 0 0 3px rgba(217,162,184,0.12);
+  border-color: #d69db6;
 }
 
-.buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 14px;
+.controls {
+  display: grid;
+  gap: 15px;
+  margin-top: 17px;
 }
 
-button {
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.main-btn {
-  flex: 1;
-  padding: 13px;
-  border-radius: 999px;
-  background: #d99bb5;
-  color: white;
-  font-size: 14px;
+.control-title {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 12px;
+  color: #ad7a91;
   font-weight: bold;
 }
 
-.main-btn:active {
-  transform: scale(0.98);
-}
-
-.sub-btn {
-  padding: 13px 18px;
-  border-radius: 999px;
-  background: #f9e8ef;
-  color: #b87592;
-  font-size: 13px;
-}
-
-.result {
-  white-space: pre-wrap;
-  min-height: 120px;
-  padding: 18px;
-  border-radius: 17px;
-  background: #fff8fc;
-  border: 1px dashed #e5bdcf;
-  font-size: 18px;
-  line-height: 2;
-  color: #725b67;
-}
-
-.copy-btn {
+select,
+input[type="color"],
+input[type="range"] {
   width: 100%;
-  margin-top: 13px;
-  padding: 13px;
-  border-radius: 999px;
-  background: #f3d4e1;
-  color: #9f6680;
-  font-weight: bold;
 }
 
-.copy-message {
-  text-align: center;
-  font-size: 12px;
-  color: #c4849f;
-  margin-top: 9px;
-  min-height: 18px;
+select {
+  padding: 11px;
+  border: 1px solid #eed8e2;
+  border-radius: 12px;
+  background: #fffafd;
+  color: #6d5963;
 }
 
-.example {
+.color-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
+  gap: 10px;
 }
 
-.example button {
-  padding: 9px 13px;
-  border-radius: 999px;
-  background: #fff0f6;
-  color: #b87892;
-  border: 1px solid #f2dbe5;
+input[type="color"] {
+  width: 52px;
+  height: 38px;
+  padding: 2px;
+  border: 1px solid #ead1dd;
+  border-radius: 10px;
+  background: white;
+}
+
+.range-value {
   font-size: 12px;
+  color: #b47791;
+  min-width: 35px;
+  text-align: right;
 }
 
-.footer {
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #806b74;
+}
+
+.check input {
+  accent-color: #d69db6;
+}
+
+.preview-wrap {
   text-align: center;
-  margin-top: 28px;
-  font-size: 11px;
-  color: #c9a9b7;
-  letter-spacing: 1px;
 }
 
-@media (max-width: 480px) {
-  .container {
-    padding-top: 25px;
-  }
+canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  background-image:
+    linear-gradient(45deg, #f4e9ee 25%, transparent 25%),
+    linear-gradient(-45deg, #f4e9ee 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #f4e9ee 75%),
+    linear-gradient(-45deg, transparent 75%, #f4e9ee 75%);
+  background-size: 24px 24px;
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+  border: 1px solid #f0dce5;
+}
 
-  .header h1 {
-    font-size: 28px;
-  }
+.make-btn,
+.save-btn {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 14px;
+  margin-top: 15px;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-  .card {
-    padding: 18px;
-  }
+.make-btn {
+  background: #d99db7;
+  color: white;
+}
 
-  .buttons {
-    flex-direction: column;
-  }
+.save-btn {
+  background: #f2d4e0;
+  color: #9e657d;
+}
 
-  .sub-btn {
-    width: 100%;
-  }
+.note {
+  text-align: center;
+  color: #b99ca8;
+  font-size: 10px;
+  line-height: 1.7;
+  margin-top: 12px;
+}
+
+footer {
+  text-align: center;
+  color: #c8a7b5;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-top: 25px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-  <header class="header">
-    <div class="small">♡ CUTE TEXT MAKER ♡</div>
-    <h1>Cute-moji</h1>
-    <p>文字をかわいくデコしちゃおう 🎀</p>
-  </header>
+<header>
+  <div class="sub">♡ CUTE TEXT MATERIAL MAKER ♡</div>
+  <h1>Cute-moji</h1>
+  <p>文字をかわいい画像素材にしよう 🎀</p>
+</header>
 
-  <section class="card">
-    <label class="label">♡ すきな文章を入力してね</label>
+<section class="card">
 
-    <textarea id="inputText"
-      placeholder="例：今日は推し活してきた♡"></textarea>
+  <label class="label">♡ 文字を入力</label>
 
-    <div class="buttons">
-      <button class="main-btn" onclick="makeCute()">
-        ♡ かわいくする
-      </button>
+  <textarea
+    id="textInput"
+    placeholder="例：お誕生日おめでとう♡"
+  ></textarea>
 
-      <button class="sub-btn" onclick="clearText()">
-        リセット
-      </button>
+  <div class="controls">
+
+    <div>
+      <span class="control-title">♡ フォント</span>
+
+      <select id="fontSelect">
+
+        <option value="rounded">
+          ふわふわ丸文字
+        </option>
+
+        <option value="serif">
+          お姉さん系
+        </option>
+
+        <option value="hand">
+          手書き風
+        </option>
+
+        <option value="bold">
+          ぷっくり太文字
+        </option>
+
+      </select>
     </div>
-  </section>
 
-  <section class="card">
-    <label class="label">♡ できあがり</label>
+    <div>
 
-    <div id="result" class="result">
-ここにかわいい文字が表示されるよ ♡
+      <span class="control-title">
+        ♡ 文字サイズ
+      </span>
+
+      <div class="color-row">
+
+        <input
+          id="sizeRange"
+          type="range"
+          min="30"
+          max="130"
+          value="65"
+        >
+
+        <span
+          id="sizeValue"
+          class="range-value"
+        >
+          65px
+        </span>
+
+      </div>
+
     </div>
 
-    <button class="copy-btn" onclick="copyText()">
-      ♡ コピーする
-    </button>
+    <div>
 
-    <div id="copyMessage" class="copy-message"></div>
-  </section>
+      <span class="control-title">
+        ♡ 文字色
+      </span>
 
-  <section class="card">
-    <label class="label">♡ おためし</label>
+      <div class="color-row">
 
-    <div class="example">
-      <button onclick="setExample('今日は推し活♡')">
-        推し活
-      </button>
+        <input
+          id="colorPicker"
+          type="color"
+          value="#d58ca8"
+        >
 
-      <button onclick="setExample('お迎えできてうれしい🎀')">
-        お迎え
-      </button>
+        <span>
+          好きな色に変更できるよ ♡
+        </span>
 
-      <button onclick="setExample('かわいいものがすき♡')">
-        かわいい
-      </button>
+      </div>
 
-      <button onclick="setExample('今日もがんばった！')">
-        日常
-      </button>
     </div>
-  </section>
 
-  <div class="footer">
-    made with ♡ Cute-moji
+    <label class="check">
+
+      <input
+        id="transparentCheck"
+        type="checkbox"
+        checked
+      >
+
+      背景を透明にする ♡
+
+    </label>
+
   </div>
+
+  <button
+    class="make-btn"
+    onclick="makeImage()"
+  >
+    ♡ 画像を作る ♡
+  </button>
+
+</section>
+
+
+<section class="card">
+
+  <label class="label">
+    ♡ プレビュー
+  </label>
+
+  <div class="preview-wrap">
+
+    <canvas
+      id="canvas"
+      width="1000"
+      height="500"
+    ></canvas>
+
+  </div>
+
+  <button
+    class="save-btn"
+    onclick="saveImage()"
+  >
+    ♡ PNG画像として保存する ♡
+  </button>
+
+  <div class="note">
+    背景を透明にすると、文字だけの素材として<br>
+    写真の上に重ねて使えるよ 🎀
+  </div>
+
+</section>
+
+<footer>
+  made with ♡ Cute-moji
+</footer>
 
 </div>
 
+
 <script>
 
-function makeCute() {
+const canvas =
+  document.getElementById("canvas");
 
-  const input = document.getElementById("inputText");
-  const result = document.getElementById("result");
+const ctx =
+  canvas.getContext("2d");
 
-  let text = input.value.trim();
+const textInput =
+  document.getElementById("textInput");
 
-  if (!text) {
-    result.textContent = "文章を入力してね ♡";
-    return;
+const fontSelect =
+  document.getElementById("fontSelect");
+
+const sizeRange =
+  document.getElementById("sizeRange");
+
+const sizeValue =
+  document.getElementById("sizeValue");
+
+const colorPicker =
+  document.getElementById("colorPicker");
+
+const transparentCheck =
+  document.getElementById("transparentCheck");
+
+
+sizeRange.addEventListener("input", () => {
+
+  sizeValue.textContent =
+    sizeRange.value + "px";
+
+  makeImage();
+
+});
+
+
+textInput.addEventListener("input", makeImage);
+fontSelect.addEventListener("change", makeImage);
+colorPicker.addEventListener("input", makeImage);
+transparentCheck.addEventListener("change", makeImage);
+
+
+function getFont() {
+
+  const size = sizeRange.value;
+
+  switch (fontSelect.value) {
+
+    case "serif":
+      return `${size}px "Yu Mincho", "Hiragino Mincho ProN", serif`;
+
+    case "hand":
+      return `${size}px "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif`;
+
+    case "bold":
+      return `bold ${size}px "Yu Gothic", "Meiryo", sans-serif`;
+
+    default:
+      return `${size}px "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif`;
+
   }
 
-  const decorations = [
-    "♡ ",
-    "🎀 ",
-    "୨୧ ",
-    "♡ "
-  ];
-
-  const randomDecoration =
-    decorations[Math.floor(Math.random() * decorations.length)];
-
-  result.textContent =
-    randomDecoration + text + " ♡";
 }
 
 
-function copyText() {
+function makeImage() {
 
-  const result =
-    document.getElementById("result").textContent;
+  const text =
+    textInput.value || "ここに文字が入るよ ♡";
 
-  if (
-    result === "ここにかわいい文字が表示されるよ ♡" ||
-    result === "文章を入力してね ♡"
-  ) {
-    return;
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+
+  if (!transparentCheck.checked) {
+
+    ctx.fillStyle = "#fff7fb";
+
+    ctx.fillRect(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
   }
 
-  navigator.clipboard.writeText(result).then(() => {
 
-    const message =
-      document.getElementById("copyMessage");
+  const font =
+    getFont();
 
-    message.textContent =
-      "コピーしたよ ♡";
+  ctx.font = font;
 
-    setTimeout(() => {
-      message.textContent = "";
-    }, 1800);
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
 
-  }).catch(() => {
+  const maxWidth = 900;
 
-    const message =
-      document.getElementById("copyMessage");
+  const lines =
+    splitText(text, maxWidth);
 
-    message.textContent =
-      "コピーできなかったので長押ししてコピーしてね ♡";
+  const lineHeight =
+    Number(sizeRange.value) * 1.35;
+
+  const totalHeight =
+    lines.length * lineHeight;
+
+  const startY =
+    canvas.height / 2 -
+    totalHeight / 2 +
+    lineHeight / 2;
+
+
+  lines.forEach((line, index) => {
+
+    const y =
+      startY + index * lineHeight;
+
+    /*
+      ふんわりした白い縁取り
+      写真の上に載せても見やすくする
+    */
+
+    ctx.lineWidth = 12;
+
+    ctx.strokeStyle =
+      "rgba(255,255,255,0.95)";
+
+    ctx.strokeText(
+      line,
+      canvas.width / 2,
+      y
+    );
+
+
+    ctx.fillStyle =
+      colorPicker.value;
+
+    ctx.fillText(
+      line,
+      canvas.width / 2,
+      y
+    );
 
   });
+
 }
 
 
-function clearText() {
+function splitText(text, maxWidth) {
 
-  document.getElementById("inputText").value = "";
+  const result = [];
 
-  document.getElementById("result").textContent =
-    "ここにかわいい文字が表示されるよ ♡";
+  let current = "";
 
-  document.getElementById("copyMessage").textContent = "";
+  for (const char of text) {
+
+    const test =
+      current + char;
+
+    if (
+      ctx.measureText(test).width >
+        maxWidth &&
+      current !== ""
+    ) {
+
+      result.push(current);
+
+      current = char;
+
+    } else {
+
+      current = test;
+
+    }
+
+  }
+
+  if (current) {
+    result.push(current);
+  }
+
+  return result;
+
 }
 
 
-function setExample(text) {
+function saveImage() {
 
-  document.getElementById("inputText").value = text;
+  const link =
+    document.createElement("a");
 
-  makeCute();
+  link.download =
+    "Cute-moji.png";
+
+  link.href =
+    canvas.toDataURL("image/png");
+
+  link.click();
+
 }
+
+
+makeImage();
 
 </script>
 
