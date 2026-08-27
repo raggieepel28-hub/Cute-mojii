@@ -25,10 +25,12 @@ body {
 }
 
 .wrapper {
-  width: min(94%, 650px);
+  width: min(94%, 680px);
   margin: auto;
   padding: 25px 0 50px;
 }
+
+/* HEADER */
 
 header {
   text-align: center;
@@ -37,7 +39,7 @@ header {
 
 .logo-small {
   color: #d39ab2;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 3px;
 }
 
@@ -54,8 +56,10 @@ header p {
   font-size: 12px;
 }
 
+/* CARD */
+
 .card {
-  background: rgba(255,255,255,.96);
+  background: rgba(255,255,255,.97);
   border: 1px solid #f0dce6;
   border-radius: 25px;
   padding: 20px;
@@ -71,9 +75,11 @@ header p {
   font-weight: bold;
 }
 
+/* TEXT */
+
 textarea {
   width: 100%;
-  min-height: 105px;
+  min-height: 115px;
   padding: 14px;
   resize: vertical;
   border: 1px solid #efd8e3;
@@ -89,6 +95,8 @@ textarea {
 textarea:focus {
   border-color: #d89db5;
 }
+
+/* CONTROLS */
 
 .control {
   margin-top: 17px;
@@ -144,17 +152,44 @@ input[type="color"] {
   color: #806b74;
 }
 
+/* CHECKBOX */
+
 .check {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 17px;
+  margin-top: 15px;
   font-size: 13px;
 }
 
 .check input {
   accent-color: #d596b0;
 }
+
+/* DECORATION BUTTONS */
+
+.decorations {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.decor {
+  border: 1px solid #efdce5;
+  background: #fff8fb;
+  color: #ad718d;
+  border-radius: 13px;
+  padding: 10px 5px;
+  margin: 0;
+  font-size: 12px;
+}
+
+.decor.active {
+  background: #f4dce7;
+  border-color: #d89db5;
+}
+
+/* FONT PREVIEW */
 
 .font-preview {
   margin-top: 8px;
@@ -163,30 +198,32 @@ input[type="color"] {
   background: #fff6fa;
   color: #c27e99;
   text-align: center;
-  font-size: 20px;
+  font-size: 21px;
 }
 
-/* プレビュー */
+/* PREVIEW */
+
+.preview-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-note {
+  color: #c29aaa;
+  font-size: 10px;
+}
 
 .preview {
   width: 100%;
   overflow: hidden;
-  text-align: center;
+  position: relative;
   border-radius: 17px;
-}
-
-/*
-  これは「透明ですよ」と
-  見せるためだけの背景。
-  PNGには保存されません。
-*/
-
-.preview.transparent-view {
   background-image:
-    linear-gradient(45deg, #eadfe4 25%, transparent 25%),
-    linear-gradient(-45deg, #eadfe4 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #eadfe4 75%),
-    linear-gradient(-45deg, transparent 75%, #eadfe4 75%);
+    linear-gradient(45deg,#e9dfe4 25%,transparent 25%),
+    linear-gradient(-45deg,#e9dfe4 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#e9dfe4 75%),
+    linear-gradient(-45deg,transparent 75%,#e9dfe4 75%);
 
   background-size: 24px 24px;
 
@@ -197,17 +234,47 @@ input[type="color"] {
     -12px 0;
 }
 
-.preview.white-view {
-  background: #fff7fb;
+.preview.has-photo {
+  background: #ddd;
+}
+
+#photo {
+  display: none;
+}
+
+.photo-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #efdce5;
+  border-radius: 999px;
+  padding: 11px;
+  margin-top: 12px;
+  color: #ad718d;
+  background: #fff8fb;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#photoPreview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
 }
 
 canvas {
   display: block;
+  position: relative;
+  z-index: 2;
   width: 100%;
-  max-width: 100%;
   height: auto;
-  border-radius: 17px;
 }
+
+/* BUTTON */
 
 button {
   width: 100%;
@@ -230,6 +297,16 @@ button {
   color: #9d647d;
 }
 
+.remove-photo {
+  background: #fff0f5;
+  color: #b97891;
+  font-size: 11px;
+  padding: 10px;
+  margin-top: 8px;
+}
+
+/* MESSAGE */
+
 .message {
   min-height: 18px;
   margin-top: 9px;
@@ -237,6 +314,8 @@ button {
   color: #c27d98;
   font-size: 11px;
 }
+
+/* FOOTER */
 
 footer {
   text-align: center;
@@ -262,11 +341,15 @@ footer {
   <h1>Cute-moji</h1>
 
   <p>
-    かわいい文字素材を作ろう 🎀
+    写真に貼れる♡かわいい文字素材を作ろう
   </p>
 
 </header>
 
+
+<!-- =========================
+     TEXT
+========================= -->
 
 <section class="card">
 
@@ -276,36 +359,38 @@ footer {
 
 <textarea
 id="text"
-placeholder="例：お誕生日おめでとう♡"
+placeholder="例：今日はがんばったから&#10;ごほうびごはんにしちゃおっ♡"
 ></textarea>
 
+
+<!-- FONT -->
 
 <div class="control">
 
 <span class="control-title">
-♡ フォント
+♡ 文字の雰囲気
 </span>
 
 <select id="font">
 
-<option value="Mochiy Pop One">
-🎀 ぷっくり量産型
-</option>
-
 <option value="Yomogi">
-🌷 ゆるふわ手書き
+✍🏻 ゆるふわ手書き
 </option>
 
 <option value="Klee One">
-♡ おしゃれ手書き
+♡ 細めのおしゃれ手書き
 </option>
 
 <option value="Playpen Sans JP">
-🩷 かわいい手書き
+🌷 かわいい手書き
 </option>
 
 <option value="Zen Maru Gothic">
 🫧 ふわふわ丸文字
+</option>
+
+<option value="Mochiy Pop One">
+🎀 ぷっくり量産型
 </option>
 
 <option value="Rampart One">
@@ -318,7 +403,6 @@ placeholder="例：お誕生日おめでとう♡"
 
 </select>
 
-
 <div
 id="fontPreview"
 class="font-preview"
@@ -328,6 +412,8 @@ class="font-preview"
 
 </div>
 
+
+<!-- SIZE -->
 
 <div class="control">
 
@@ -340,16 +426,13 @@ class="font-preview"
 <input
 id="size"
 type="range"
-min="35"
-max="130"
-value="65"
+min="30"
+max="120"
+value="62"
 >
 
-<span
-id="sizeValue"
-class="value"
->
-65px
+<span id="sizeValue" class="value">
+62px
 </span>
 
 </div>
@@ -357,10 +440,12 @@ class="value"
 </div>
 
 
+<!-- COLOR -->
+
 <div class="control">
 
 <span class="control-title">
-♡ 文字色
+♡ ペンの色
 </span>
 
 <div class="row">
@@ -368,11 +453,11 @@ class="value"
 <input
 id="color"
 type="color"
-value="#ff75ae"
+value="#ffffff"
 >
 
 <span class="color-label">
-好きな色にできるよ ♡
+白ペン風ならこのままでOK ♡
 </span>
 
 </div>
@@ -380,10 +465,12 @@ value="#ff75ae"
 </div>
 
 
+<!-- OUTLINE -->
+
 <div class="control">
 
 <span class="control-title">
-♡ 白ふちの太さ
+♡ ふちの太さ
 </span>
 
 <div class="row">
@@ -392,21 +479,20 @@ value="#ff75ae"
 id="outline"
 type="range"
 min="0"
-max="35"
-value="8"
+max="30"
+value="0"
 >
 
-<span
-id="outlineValue"
-class="value"
->
-8px
+<span id="outlineValue" class="value">
+0px
 </span>
 
 </div>
 
 </div>
 
+
+<!-- GLOW -->
 
 <div class="control">
 
@@ -437,6 +523,8 @@ class="value"
 </div>
 
 
+<!-- GLOW COLOR -->
+
 <div class="control">
 
 <span class="control-title">
@@ -452,13 +540,15 @@ value="#ff75c8"
 >
 
 <span class="color-label">
-光の色を選んでね ✨
+光の色 ✨
 </span>
 
 </div>
 
 </div>
 
+
+<!-- GLOW POWER -->
 
 <div class="control">
 
@@ -476,10 +566,7 @@ max="50"
 value="25"
 >
 
-<span
-id="glowPowerValue"
-class="value"
->
+<span id="glowPowerValue" class="value">
 25
 </span>
 
@@ -487,6 +574,65 @@ class="value"
 
 </div>
 
+
+<!-- DECORATIONS -->
+
+<div class="control">
+
+<span class="control-title">
+♡ 手書きデコを追加
+</span>
+
+<div class="decorations">
+
+<button
+class="decor"
+data-decor="heart"
+>
+♡ ハート
+</button>
+
+<button
+class="decor"
+data-decor="sparkle"
+>
+✧ キラキラ
+</button>
+
+<button
+class="decor"
+data-decor="arrow"
+>
+↪︎ 矢印
+</button>
+
+<button
+class="decor"
+data-decor="dots"
+>
+・・・・
+</button>
+
+<button
+class="decor"
+data-decor="music"
+>
+♪ 音符
+</button>
+
+<button
+class="decor"
+data-decor="frame"
+>
+☁ 囲み
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TRANSPARENT -->
 
 <label class="check">
 
@@ -503,7 +649,7 @@ checked
 
 <button
 class="make"
-onclick="draw()"
+id="makeButton"
 >
 ♡ 画像を作る ♡
 </button>
@@ -511,21 +657,71 @@ onclick="draw()"
 </section>
 
 
+<!-- =========================
+     PHOTO PREVIEW
+========================= -->
+
 <section class="card">
+
+<label class="label">
+♡ 写真に重ねて確認
+</label>
+
+<label
+for="photo"
+class="photo-button"
+>
+📷 写真を入れてみる
+</label>
+
+<input
+id="photo"
+type="file"
+accept="image/*"
+>
+
+<button
+class="remove-photo"
+id="removePhoto"
+style="display:none;"
+>
+写真を外す
+</button>
+
+</section>
+
+
+<!-- =========================
+     PREVIEW
+========================= -->
+
+<section class="card">
+
+<div class="preview-title">
 
 <label class="label">
 ♡ プレビュー
 </label>
 
+<span class="preview-note">
+チェック柄部分＝透明
+</span>
+
+</div>
+
 <div
 id="preview"
-class="preview transparent-view"
+class="preview"
+>
+
+<img
+id="photoPreview"
 >
 
 <canvas
 id="canvas"
 width="1200"
-height="600"
+height="700"
 ></canvas>
 
 </div>
@@ -533,9 +729,9 @@ height="600"
 
 <button
 class="save"
-onclick="saveImage()"
+id="saveButton"
 >
-♡ PNG画像として保存する ♡
+♡ 透明PNGとして保存 ♡
 </button>
 
 <div
@@ -554,6 +750,10 @@ made with ♡ Cute-moji
 
 
 <script>
+
+/* ===================================
+   ELEMENTS
+=================================== */
 
 const canvas =
 document.getElementById("canvas");
@@ -603,13 +803,65 @@ document.getElementById("fontPreview");
 const preview =
 document.getElementById("preview");
 
+const photo =
+document.getElementById("photo");
+
+const photoPreview =
+document.getElementById("photoPreview");
+
+const removePhoto =
+document.getElementById("removePhoto");
+
 const message =
 document.getElementById("message");
 
 
-/* =========================
-   フォントプレビュー
-========================= */
+/* ===================================
+   DECORATIONS
+=================================== */
+
+let selectedDecorations = [];
+
+
+document.querySelectorAll(".decor").forEach(
+  button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const type =
+          button.dataset.decor;
+
+        button.classList.toggle("active");
+
+        if (
+          selectedDecorations.includes(type)
+        ) {
+
+          selectedDecorations =
+            selectedDecorations.filter(
+              item => item !== type
+            );
+
+        } else {
+
+          selectedDecorations.push(type);
+
+        }
+
+        draw();
+
+      }
+    );
+
+  }
+);
+
+
+/* ===================================
+   FONT PREVIEW
+=================================== */
 
 function updateFontPreview() {
 
@@ -619,9 +871,9 @@ function updateFontPreview() {
 }
 
 
-/* =========================
-   改行
-========================= */
+/* ===================================
+   TEXT LINES
+=================================== */
 
 function makeLines(
   value,
@@ -630,84 +882,120 @@ function makeLines(
 
   const lines = [];
 
-  let current = "";
+  const manualLines =
+    value.split("\n");
 
-  for (const char of value) {
+  manualLines.forEach(
+    manualLine => {
 
-    const test =
-      current + char;
+      if (manualLine === "") {
 
-    if (
-      ctx.measureText(test).width >
-      maxWidth &&
-      current !== ""
-    ) {
+        lines.push("");
 
-      lines.push(current);
+        return;
 
-      current = char;
+      }
 
-    } else {
+      let current = "";
 
-      current = test;
+      for (
+        const char of manualLine
+      ) {
+
+        const test =
+          current + char;
+
+        if (
+          ctx.measureText(test).width >
+          maxWidth &&
+          current !== ""
+        ) {
+
+          lines.push(current);
+
+          current = char;
+
+        } else {
+
+          current = test;
+
+        }
+
+      }
+
+      if (current) {
+        lines.push(current);
+      }
 
     }
-
-  }
-
-  if (current) {
-    lines.push(current);
-  }
+  );
 
   return lines;
 
 }
 
 
-/* =========================
-   ネオン
-========================= */
+/* ===================================
+   NEON
+=================================== */
 
 function drawNeon(
   line,
   x,
-  y,
-  mode,
-  power,
-  neonColor
+  y
 ) {
 
-  if (mode === "none") {
+  if (
+    glow.value === "none"
+  ) {
+
     return;
-  }
-
-
-  let outer;
-  let middle;
-  let inner;
-
-
-  if (mode === "soft") {
-
-    outer = power * 1.8;
-    middle = power;
-    inner = power * .45;
 
   }
 
-  else if (mode === "strong") {
 
-    outer = power * 3.2;
-    middle = power * 1.8;
-    inner = power * .8;
+  const power =
+    Number(glowPower.value);
+
+
+  let outer =
+    power * 2.5;
+
+  let middle =
+    power * 1.4;
+
+  let inner =
+    power * .6;
+
+
+  if (
+    glow.value === "soft"
+  ) {
+
+    outer =
+      power * 1.8;
+
+    middle =
+      power;
+
+    inner =
+      power * .45;
 
   }
 
-  else {
 
-    outer = power * 2.5;
-    middle = power * 1.4;
-    inner = power * .6;
+  if (
+    glow.value === "strong"
+  ) {
+
+    outer =
+      power * 3.2;
+
+    middle =
+      power * 1.8;
+
+    inner =
+      power * .8;
 
   }
 
@@ -717,13 +1005,13 @@ function drawNeon(
   ctx.save();
 
   ctx.shadowColor =
-    neonColor;
+    glowColor.value;
 
   ctx.shadowBlur =
     outer;
 
   ctx.fillStyle =
-    neonColor;
+    glowColor.value;
 
   ctx.globalAlpha =
     .28;
@@ -742,13 +1030,13 @@ function drawNeon(
   ctx.save();
 
   ctx.shadowColor =
-    neonColor;
+    glowColor.value;
 
   ctx.shadowBlur =
     middle;
 
   ctx.fillStyle =
-    neonColor;
+    glowColor.value;
 
   ctx.globalAlpha =
     .55;
@@ -767,7 +1055,7 @@ function drawNeon(
   ctx.save();
 
   ctx.shadowColor =
-    neonColor;
+    glowColor.value;
 
   ctx.shadowBlur =
     inner;
@@ -789,9 +1077,312 @@ function drawNeon(
 }
 
 
-/* =========================
-   描画
-========================= */
+/* ===================================
+   HAND-DRAWN DECORATIONS
+=================================== */
+
+function drawDecorations() {
+
+  ctx.save();
+
+  ctx.strokeStyle =
+    color.value;
+
+  ctx.fillStyle =
+    color.value;
+
+  ctx.lineWidth = 5;
+
+  ctx.lineCap = "round";
+
+  ctx.lineJoin = "round";
+
+
+  /* ハート */
+
+  if (
+    selectedDecorations.includes("heart")
+  ) {
+
+    drawHeart(
+      160,
+      145,
+      42
+    );
+
+    drawHeart(
+      1040,
+      545,
+      30
+    );
+
+  }
+
+
+  /* キラキラ */
+
+  if (
+    selectedDecorations.includes("sparkle")
+  ) {
+
+    drawSparkle(
+      1020,
+      160,
+      32
+    );
+
+    drawSparkle(
+      180,
+      540,
+      25
+    );
+
+  }
+
+
+  /* 矢印 */
+
+  if (
+    selectedDecorations.includes("arrow")
+  ) {
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      930,
+      220
+    );
+
+    ctx.quadraticCurveTo(
+      820,
+      250,
+      780,
+      320
+    );
+
+    ctx.stroke();
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      780,
+      320
+    );
+
+    ctx.lineTo(
+      800,
+      300
+    );
+
+    ctx.moveTo(
+      780,
+      320
+    );
+
+    ctx.lineTo(
+      806,
+      322
+    );
+
+    ctx.stroke();
+
+  }
+
+
+  /* 点線 */
+
+  if (
+    selectedDecorations.includes("dots")
+  ) {
+
+    ctx.setLineDash([
+      7,
+      13
+    ]);
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      170,
+      610
+    );
+
+    ctx.quadraticCurveTo(
+      600,
+      650,
+      1030,
+      610
+    );
+
+    ctx.stroke();
+
+    ctx.setLineDash([]);
+
+  }
+
+
+  /* 音符 */
+
+  if (
+    selectedDecorations.includes("music")
+  ) {
+
+    ctx.font =
+      '45px "Yomogi"';
+
+    ctx.fillText(
+      "♪",
+      100,
+      230
+    );
+
+    ctx.fillText(
+      "♫",
+      1080,
+      400
+    );
+
+  }
+
+
+  /* 囲み */
+
+  if (
+    selectedDecorations.includes("frame")
+  ) {
+
+    ctx.lineWidth = 5;
+
+    ctx.setLineDash([
+      10,
+      10
+    ]);
+
+    ctx.beginPath();
+
+    ctx.roundRect(
+      90,
+      90,
+      1020,
+      520,
+      55
+    );
+
+    ctx.stroke();
+
+    ctx.setLineDash([]);
+
+  }
+
+
+  ctx.restore();
+
+}
+
+
+/* ===================================
+   HEART
+=================================== */
+
+function drawHeart(
+  x,
+  y,
+  size
+) {
+
+  ctx.save();
+
+  ctx.translate(
+    x,
+    y
+  );
+
+  ctx.scale(
+    size / 50,
+    size / 50
+  );
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+    0,
+    18
+  );
+
+  ctx.bezierCurveTo(
+    -45,
+    -10,
+    -25,
+    -40,
+    0,
+    -18
+  );
+
+  ctx.bezierCurveTo(
+    25,
+    -40,
+    45,
+    -10,
+    0,
+    18
+  );
+
+  ctx.stroke();
+
+  ctx.restore();
+
+}
+
+
+/* ===================================
+   SPARKLE
+=================================== */
+
+function drawSparkle(
+  x,
+  y,
+  size
+) {
+
+  ctx.save();
+
+  ctx.translate(
+    x,
+    y
+  );
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+    0,
+    -size
+  );
+
+  ctx.lineTo(
+    0,
+    size
+  );
+
+  ctx.moveTo(
+    -size,
+    0
+  );
+
+  ctx.lineTo(
+    size,
+    0
+  );
+
+  ctx.stroke();
+
+  ctx.restore();
+
+}
+
+
+/* ===================================
+   DRAW
+=================================== */
 
 async function draw() {
 
@@ -799,11 +1390,9 @@ async function draw() {
 
 
   /*
-    Canvasを完全にクリアする。
-
-    ここが重要。
-    透明にしたい場合は
-    白く塗らない。
+    完全クリア
+    ↓
+    透明になる
   */
 
   ctx.clearRect(
@@ -814,36 +1403,13 @@ async function draw() {
   );
 
 
-  /*
-    背景を透明にしない場合だけ
-    白背景を描く。
-  */
-
-  if (!transparent.checked) {
-
-    ctx.fillStyle =
-      "#fff7fb";
-
-    ctx.fillRect(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    );
-
-  }
-
-
   /* フォント */
 
   const fontSize =
     Number(size.value);
 
-  const fontName =
-    font.value;
-
   ctx.font =
-    `${fontSize}px "${fontName}"`;
+    `${fontSize}px "${font.value}"`;
 
   ctx.textAlign =
     "center";
@@ -860,16 +1426,18 @@ async function draw() {
   const lines =
     makeLines(
       input,
-      1050
+      960
     );
 
 
   const lineHeight =
     fontSize * 1.45;
 
+
   const totalHeight =
     lines.length *
     lineHeight;
+
 
   const startY =
     canvas.height / 2 -
@@ -877,9 +1445,7 @@ async function draw() {
     lineHeight / 2;
 
 
-  /*
-    各行を描画
-  */
+  /* 文字 */
 
   lines.forEach(
     (line,index) => {
@@ -893,27 +1459,27 @@ async function draw() {
 
 
       /*
-        ① ネオン
+        ネオン
       */
 
       drawNeon(
         line,
         x,
-        y,
-        glow.value,
-        Number(glowPower.value),
-        glowColor.value
+        y
       );
 
 
       /*
-        ② 白ふち
+        ふち
       */
 
       const outlineSize =
         Number(outline.value);
 
-      if (outlineSize > 0) {
+
+      if (
+        outlineSize > 0
+      ) {
 
         ctx.save();
 
@@ -935,7 +1501,7 @@ async function draw() {
 
 
       /*
-        ③ メイン文字
+        本体
       */
 
       ctx.save();
@@ -955,63 +1521,144 @@ async function draw() {
 
 
   /*
-    プレビュー背景だけ変更。
-
-    Canvasそのものには
-    背景を描いていない。
+    飾り
   */
 
-  if (transparent.checked) {
+  drawDecorations();
 
-    preview.classList.add(
-      "transparent-view"
-    );
 
-    preview.classList.remove(
-      "white-view"
-    );
+  /*
+    プレビュー
+  */
+
+  if (
+    transparent.checked
+  ) {
+
+    preview.style.backgroundImage =
+      `
+      linear-gradient(45deg,#e9dfe4 25%,transparent 25%),
+      linear-gradient(-45deg,#e9dfe4 25%,transparent 25%),
+      linear-gradient(45deg,transparent 75%,#e9dfe4 75%),
+      linear-gradient(-45deg,transparent 75%,#e9dfe4 75%)
+      `;
+
+    preview.style.backgroundSize =
+      "24px 24px";
+
+    preview.style.backgroundPosition =
+      "0 0,0 12px,12px -12px,-12px 0";
 
   } else {
 
-    preview.classList.add(
-      "white-view"
-    );
+    preview.style.backgroundImage =
+      "none";
 
-    preview.classList.remove(
-      "transparent-view"
-    );
+    preview.style.background =
+      "#fff7fb";
 
   }
 
 }
 
 
-/* =========================
-   PNG保存
-========================= */
+/* ===================================
+   PHOTO
+=================================== */
+
+photo.addEventListener(
+  "change",
+  function() {
+
+    const file =
+      this.files[0];
+
+    if (!file) {
+      return;
+    }
+
+
+    const url =
+      URL.createObjectURL(file);
+
+
+    photoPreview.src =
+      url;
+
+    photoPreview.style.display =
+      "block";
+
+    preview.classList.add(
+      "has-photo"
+    );
+
+    removePhoto.style.display =
+      "block";
+
+  }
+);
+
+
+removePhoto.addEventListener(
+  "click",
+  function() {
+
+    photo.value = "";
+
+    photoPreview.src = "";
+
+    photoPreview.style.display =
+      "none";
+
+    preview.classList.remove(
+      "has-photo"
+    );
+
+    this.style.display =
+      "none";
+
+  }
+);
+
+
+/* ===================================
+   SAVE PNG
+=================================== */
 
 function saveImage() {
 
   /*
-    canvas.toDataURL() は
-    Canvas内部の画像だけを保存する。
+    透明PNGの場合、
+    Canvasには背景を描いていない。
 
-    プレビューのチェック柄は
-    CSSなのでPNGには入らない。
+    CSSのチェック柄も
+    保存されない。
   */
 
   const link =
     document.createElement("a");
 
-  link.download =
+
+  if (
     transparent.checked
-      ? "Cute-moji-transparent.png"
-      : "Cute-moji.png";
+  ) {
+
+    link.download =
+      "Cute-moji-transparent.png";
+
+  } else {
+
+    link.download =
+      "Cute-moji.png";
+
+  }
+
 
   link.href =
     canvas.toDataURL(
       "image/png"
     );
+
 
   link.click();
 
@@ -1025,7 +1672,8 @@ function saveImage() {
   setTimeout(
     () => {
 
-      message.textContent = "";
+      message.textContent =
+        "";
 
     },
     2500
@@ -1034,9 +1682,9 @@ function saveImage() {
 }
 
 
-/* =========================
-   イベント
-========================= */
+/* ===================================
+   EVENTS
+=================================== */
 
 text.addEventListener(
   "input",
@@ -1119,9 +1767,25 @@ glowPower.addEventListener(
 );
 
 
-/* =========================
-   最初に実行
-========================= */
+document.getElementById(
+  "makeButton"
+).addEventListener(
+  "click",
+  draw
+);
+
+
+document.getElementById(
+  "saveButton"
+).addEventListener(
+  "click",
+  saveImage
+);
+
+
+/* ===================================
+   START
+=================================== */
 
 document.fonts.ready.then(
   () => {
