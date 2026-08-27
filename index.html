@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Klee+One:wght@400;600&family=Mochiy+Pop+One&family=New+Tegomin&family=Playpen+Sans+JP:wght@400;600&family=Rampart+One&family=Stick&family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Mochiy+Pop+One&family=Playpen+Sans+JP:wght@400;600&family=Rampart+One&family=Stick&family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -29,10 +29,6 @@ body {
   margin: auto;
   padding: 25px 0 50px;
 }
-
-/* --------------------
-   HEADER
--------------------- */
 
 header {
   text-align: center;
@@ -58,10 +54,6 @@ header p {
   font-size: 12px;
 }
 
-/* --------------------
-   CARD
--------------------- */
-
 .card {
   background: rgba(255,255,255,.96);
   border: 1px solid #f0dce6;
@@ -78,10 +70,6 @@ header p {
   font-size: 13px;
   font-weight: bold;
 }
-
-/* --------------------
-   INPUT
--------------------- */
 
 textarea {
   width: 100%;
@@ -101,10 +89,6 @@ textarea {
 textarea:focus {
   border-color: #d89db5;
 }
-
-/* --------------------
-   CONTROLS
--------------------- */
 
 .control {
   margin-top: 17px;
@@ -140,7 +124,7 @@ input[type="range"] {
 }
 
 .value {
-  width: 45px;
+  width: 48px;
   text-align: right;
   font-size: 12px;
   color: #b27690;
@@ -160,10 +144,6 @@ input[type="color"] {
   color: #806b74;
 }
 
-/* --------------------
-   CHECKBOX
--------------------- */
-
 .check {
   display: flex;
   align-items: center;
@@ -176,9 +156,15 @@ input[type="color"] {
   accent-color: #d596b0;
 }
 
-/* --------------------
-   PREVIEW
--------------------- */
+.font-preview {
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #fff6fa;
+  color: #c27e99;
+  text-align: center;
+  font-size: 20px;
+}
 
 .preview {
   width: 100%;
@@ -210,10 +196,6 @@ canvas {
   border: 1px solid #efdce5;
 }
 
-/* --------------------
-   BUTTONS
--------------------- */
-
 button {
   width: 100%;
   border: 0;
@@ -242,24 +224,6 @@ button {
   color: #c27d98;
   font-size: 11px;
 }
-
-/* --------------------
-   FONT PREVIEW
--------------------- */
-
-.font-preview {
-  margin-top: 8px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: #fff6fa;
-  color: #c27e99;
-  text-align: center;
-  font-size: 20px;
-}
-
-/* --------------------
-   FOOTER
--------------------- */
 
 footer {
   text-align: center;
@@ -291,10 +255,6 @@ footer {
 </header>
 
 
-<!-- ====================
-     TEXT
-==================== -->
-
 <section class="card">
 
 <label class="label">
@@ -306,10 +266,6 @@ id="text"
 placeholder="例：お誕生日おめでとう♡"
 ></textarea>
 
-
-<!-- ====================
-     FONT
-==================== -->
 
 <div class="control">
 
@@ -347,12 +303,7 @@ placeholder="例：お誕生日おめでとう♡"
 🍓 ころころポップ
 </option>
 
-<option value="DotGothic16">
-🎮 ちょいレトロ
-</option>
-
 </select>
-
 
 <div
 id="fontPreview"
@@ -363,10 +314,6 @@ class="font-preview"
 
 </div>
 
-
-<!-- ====================
-     SIZE
-==================== -->
 
 <div class="control">
 
@@ -396,10 +343,6 @@ class="value"
 </div>
 
 
-<!-- ====================
-     TEXT COLOR
-==================== -->
-
 <div class="control">
 
 <span class="control-title">
@@ -411,7 +354,7 @@ class="value"
 <input
 id="color"
 type="color"
-value="#d58ba8"
+value="#ff75ae"
 >
 
 <span class="color-label">
@@ -422,10 +365,6 @@ value="#d58ba8"
 
 </div>
 
-
-<!-- ====================
-     OUTLINE
-==================== -->
 
 <div class="control">
 
@@ -439,15 +378,15 @@ value="#d58ba8"
 id="outline"
 type="range"
 min="0"
-max="30"
-value="12"
+max="35"
+value="8"
 >
 
 <span
 id="outlineValue"
 class="value"
 >
-12px
+8px
 </span>
 
 </div>
@@ -455,32 +394,28 @@ class="value"
 </div>
 
 
-<!-- ====================
-     GLOW
-==================== -->
-
 <div class="control">
 
 <span class="control-title">
-♡ 光らせ方
+♡ ネオン
 </span>
 
 <select id="glow">
 
 <option value="none">
-✦ 光らせない
+✦ ネオンなし
 </option>
 
 <option value="soft">
-♡ ふんわり光る
+♡ ふんわりネオン
+</option>
+
+<option value="normal" selected>
+💗 ネオン
 </option>
 
 <option value="strong">
-✨ 強めに光る
-</option>
-
-<option value="dream">
-🫧 ふわっと発光
+✨ 強めネオン
 </option>
 
 </select>
@@ -488,14 +423,10 @@ class="value"
 </div>
 
 
-<!-- ====================
-     GLOW COLOR
-==================== -->
-
 <div class="control">
 
 <span class="control-title">
-♡ 光の色
+♡ ネオンの色
 </span>
 
 <div class="row">
@@ -503,11 +434,11 @@ class="value"
 <input
 id="glowColor"
 type="color"
-value="#ffffff"
+value="#ff75c8"
 >
 
 <span class="color-label">
-光の色も変更できるよ ✨
+光の色を選んでね ✨
 </span>
 
 </div>
@@ -515,14 +446,10 @@ value="#ffffff"
 </div>
 
 
-<!-- ====================
-     GLOW POWER
-==================== -->
-
 <div class="control">
 
 <span class="control-title">
-♡ 光の強さ
+♡ ネオンの強さ
 </span>
 
 <div class="row">
@@ -530,26 +457,22 @@ value="#ffffff"
 <input
 id="glowPower"
 type="range"
-min="0"
-max="40"
-value="18"
+min="5"
+max="50"
+value="25"
 >
 
 <span
 id="glowPowerValue"
 class="value"
 >
-18
+25
 </span>
 
 </div>
 
 </div>
 
-
-<!-- ====================
-     TRANSPARENT
-==================== -->
 
 <label class="check">
 
@@ -573,10 +496,6 @@ onclick="draw()"
 
 </section>
 
-
-<!-- ====================
-     PREVIEW
-==================== -->
 
 <section class="card">
 
@@ -602,7 +521,6 @@ onclick="saveImage()"
 ♡ PNG画像として保存する ♡
 </button>
 
-
 <div
 id="message"
 class="message"
@@ -619,10 +537,6 @@ made with ♡ Cute-moji
 
 
 <script>
-
-/* ====================
-   ELEMENTS
-==================== */
 
 const canvas =
 document.getElementById("canvas");
@@ -673,366 +587,485 @@ const message =
 document.getElementById("message");
 
 
-/* ====================
-   FONT PREVIEW
-==================== */
+/* -------------------------
+   フォント表示
+------------------------- */
 
 function updateFontPreview() {
 
-fontPreview.style.fontFamily =
-`"${font.value}"`;
+  fontPreview.style.fontFamily =
+    `"${font.value}"`;
 
-fontPreview.textContent =
-"かわいい文字 ♡";
+  fontPreview.textContent =
+    "かわいい文字 ♡";
 
 }
 
 
-/* ====================
-   LINE BREAK
-==================== */
+/* -------------------------
+   改行
+------------------------- */
 
 function makeLines(
-textValue,
-maxWidth
+  value,
+  maxWidth
 ) {
 
-const lines = [];
+  const lines = [];
 
-let current = "";
+  let current = "";
 
-for (const char of textValue) {
+  for (const char of value) {
 
-const test =
-current + char;
+    const test =
+      current + char;
 
-if (
-ctx.measureText(test).width >
-maxWidth &&
-current !== ""
+    if (
+      ctx.measureText(test).width >
+      maxWidth &&
+      current !== ""
+    ) {
+
+      lines.push(current);
+
+      current = char;
+
+    } else {
+
+      current = test;
+
+    }
+
+  }
+
+  if (current) {
+    lines.push(current);
+  }
+
+  return lines;
+
+}
+
+
+/* -------------------------
+   ネオン描画
+------------------------- */
+
+function drawNeon(
+  line,
+  x,
+  y,
+  mode,
+  power,
+  neonColor
 ) {
 
-lines.push(current);
+  if (mode === "none") {
+    return;
+  }
 
-current = char;
 
-} else {
+  let outer;
+  let middle;
+  let inner;
 
-current = test;
+
+  if (mode === "soft") {
+
+    outer = power * 1.8;
+    middle = power;
+    inner = power * .45;
+
+  }
+
+  else if (mode === "strong") {
+
+    outer = power * 3.2;
+    middle = power * 1.8;
+    inner = power * .8;
+
+  }
+
+  else {
+
+    outer = power * 2.5;
+    middle = power * 1.4;
+    inner = power * .6;
+
+  }
+
+
+  /*
+    外側のぼわっとした光
+  */
+
+  ctx.save();
+
+  ctx.shadowColor =
+    neonColor;
+
+  ctx.shadowBlur =
+    outer;
+
+  ctx.fillStyle =
+    neonColor;
+
+  ctx.globalAlpha =
+    .28;
+
+  ctx.fillText(
+    line,
+    x,
+    y
+  );
+
+  ctx.restore();
+
+
+  /*
+    中間の強い光
+  */
+
+  ctx.save();
+
+  ctx.shadowColor =
+    neonColor;
+
+  ctx.shadowBlur =
+    middle;
+
+  ctx.fillStyle =
+    neonColor;
+
+  ctx.globalAlpha =
+    .55;
+
+  ctx.fillText(
+    line,
+    x,
+    y
+  );
+
+  ctx.restore();
+
+
+  /*
+    文字のすぐ外側の光
+  */
+
+  ctx.save();
+
+  ctx.shadowColor =
+    neonColor;
+
+  ctx.shadowBlur =
+    inner;
+
+  ctx.fillStyle =
+    "#ffffff";
+
+  ctx.globalAlpha =
+    .9;
+
+  ctx.fillText(
+    line,
+    x,
+    y
+  );
+
+  ctx.restore();
 
 }
 
-}
 
-if (current) {
-lines.push(current);
-}
-
-return lines;
-
-}
-
-
-/* ====================
-   DRAW
-==================== */
+/* -------------------------
+   メイン描画
+------------------------- */
 
 async function draw() {
 
-await document.fonts.ready;
-
-ctx.clearRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
+  await document.fonts.ready;
 
 
-/* BACKGROUND */
-
-if (!transparent.checked) {
-
-ctx.fillStyle =
-"#fff7fb";
-
-ctx.fillRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
-
-}
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
 
 
-/* FONT */
+  /*
+    背景
+  */
 
-const fontSize =
-Number(size.value);
+  if (!transparent.checked) {
 
-const fontName =
-font.value;
+    ctx.fillStyle =
+      "#fff7fb";
 
-ctx.font =
-`${fontSize}px "${fontName}"`;
+    ctx.fillRect(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
 
-ctx.textAlign =
-"center";
-
-ctx.textBaseline =
-"middle";
-
-
-/* TEXT */
-
-const input =
-text.value.trim() ||
-"ここに文字が入るよ ♡";
+  }
 
 
-const lines =
-makeLines(
-input,
-1050
-);
+  /*
+    フォント
+  */
+
+  const fontSize =
+    Number(size.value);
+
+  const fontName =
+    font.value;
+
+  ctx.font =
+    `${fontSize}px "${fontName}"`;
+
+  ctx.textAlign =
+    "center";
+
+  ctx.textBaseline =
+    "middle";
 
 
-const lineHeight =
-fontSize * 1.45;
-
-const totalHeight =
-lines.length * lineHeight;
-
-const startY =
-canvas.height / 2 -
-totalHeight / 2 +
-lineHeight / 2;
+  const input =
+    text.value.trim() ||
+    "ここに文字が入るよ ♡";
 
 
-/* GLOW */
-
-let shadowBlur = 0;
-
-if (glow.value === "soft") {
-
-shadowBlur =
-Number(glowPower.value) * 0.7;
-
-}
-
-if (glow.value === "strong") {
-
-shadowBlur =
-Number(glowPower.value) * 1.5;
-
-}
-
-if (glow.value === "dream") {
-
-shadowBlur =
-Number(glowPower.value);
-
-}
+  const lines =
+    makeLines(
+      input,
+      1050
+    );
 
 
-/* DRAW EACH LINE */
+  const lineHeight =
+    fontSize * 1.45;
 
-lines.forEach(
-(line,index) => {
+  const totalHeight =
+    lines.length *
+    lineHeight;
 
-const y =
-startY +
-index * lineHeight;
-
-
-/* GLOW */
-
-if (glow.value !== "none") {
-
-ctx.save();
-
-ctx.shadowColor =
-glowColor.value;
-
-ctx.shadowBlur =
-shadowBlur;
-
-ctx.fillStyle =
-glowColor.value;
-
-ctx.fillText(
-line,
-canvas.width / 2,
-y
-);
-
-ctx.restore();
-
-}
+  const startY =
+    canvas.height / 2 -
+    totalHeight / 2 +
+    lineHeight / 2;
 
 
-/* WHITE OUTLINE */
+  /*
+    各行
+  */
 
-const outlineSize =
-Number(outline.value);
+  lines.forEach(
+    (line,index) => {
 
-if (outlineSize > 0) {
+      const x =
+        canvas.width / 2;
 
-ctx.lineWidth =
-outlineSize;
-
-ctx.strokeStyle =
-"rgba(255,255,255,.96)";
-
-ctx.strokeText(
-line,
-canvas.width / 2,
-y
-);
-
-}
+      const y =
+        startY +
+        index * lineHeight;
 
 
-/* MAIN TEXT */
+      /*
+        ① ネオン
+      */
 
-ctx.fillStyle =
-color.value;
+      drawNeon(
+        line,
+        x,
+        y,
+        glow.value,
+        Number(glowPower.value),
+        glowColor.value
+      );
 
-ctx.fillText(
-line,
-canvas.width / 2,
-y
-);
 
-});
+      /*
+        ② 白い縁
+      */
+
+      const outlineSize =
+        Number(outline.value);
+
+      if (outlineSize > 0) {
+
+        ctx.save();
+
+        ctx.lineWidth =
+          outlineSize;
+
+        ctx.strokeStyle =
+          "rgba(255,255,255,.98)";
+
+        ctx.strokeText(
+          line,
+          x,
+          y
+        );
+
+        ctx.restore();
+
+      }
+
+
+      /*
+        ③ 本体
+      */
+
+      ctx.save();
+
+      ctx.fillStyle =
+        color.value;
+
+      ctx.fillText(
+        line,
+        x,
+        y
+      );
+
+      ctx.restore();
+
+    });
 
 }
 
 
-/* ====================
-   SAVE
-==================== */
+/* -------------------------
+   保存
+------------------------- */
 
 function saveImage() {
 
-const link =
-document.createElement("a");
+  const link =
+    document.createElement("a");
 
-link.download =
-"Cute-moji.png";
+  link.download =
+    "Cute-moji-neon.png";
 
-link.href =
-canvas.toDataURL(
-"image/png"
-);
+  link.href =
+    canvas.toDataURL(
+      "image/png"
+    );
 
-link.click();
+  link.click();
 
 
-message.textContent =
-"PNG画像を保存したよ ♡";
+  message.textContent =
+    "PNG画像を保存したよ ♡";
 
-setTimeout(
-() => {
+  setTimeout(
+    () => {
 
-message.textContent = "";
+      message.textContent = "";
 
-},
-2000
-);
+    },
+    2000
+  );
 
 }
 
 
-/* ====================
-   EVENTS
-==================== */
-
-size.addEventListener(
-"input",
-() => {
-
-sizeValue.textContent =
-size.value + "px";
-
-draw();
-
-});
-
-
-outline.addEventListener(
-"input",
-() => {
-
-outlineValue.textContent =
-outline.value + "px";
-
-draw();
-
-});
-
-
-glowPower.addEventListener(
-"input",
-() => {
-
-glowPowerValue.textContent =
-glowPower.value;
-
-draw();
-
-});
-
+/* -------------------------
+   イベント
+------------------------- */
 
 text.addEventListener(
-"input",
-draw
+  "input",
+  draw
 );
 
 font.addEventListener(
-"change",
-() => {
+  "change",
+  () => {
 
-updateFontPreview();
+    updateFontPreview();
 
-draw();
+    draw();
 
-});
+  }
+);
 
 color.addEventListener(
-"input",
-draw
+  "input",
+  draw
 );
 
 glow.addEventListener(
-"change",
-draw
+  "change",
+  draw
 );
 
 glowColor.addEventListener(
-"input",
-draw
+  "input",
+  draw
 );
 
 transparent.addEventListener(
-"change",
-draw
+  "change",
+  draw
 );
 
 
-/* ====================
-   START
-==================== */
+size.addEventListener(
+  "input",
+  () => {
+
+    sizeValue.textContent =
+      size.value + "px";
+
+    draw();
+
+  }
+);
+
+
+outline.addEventListener(
+  "input",
+  () => {
+
+    outlineValue.textContent =
+      outline.value + "px";
+
+    draw();
+
+  }
+);
+
+
+glowPower.addEventListener(
+  "input",
+  () => {
+
+    glowPowerValue.textContent =
+      glowPower.value;
+
+    draw();
+
+  }
+);
+
+
+/* -------------------------
+   起動
+------------------------- */
 
 document.fonts.ready.then(
-() => {
+  () => {
 
-updateFontPreview();
+    updateFontPreview();
 
-draw();
+    draw();
 
-});
+  }
+);
 
 </script>
 
