@@ -6,11 +6,10 @@
 
 <title>Cute-moji ♡</title>
 
-<!-- かわいい日本語Webフォント -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Yomogi&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Klee+One:wght@400;600&family=Mochiy+Pop+One&family=New+Tegomin&family=Playpen+Sans+JP:wght@400;600&family=Rampart+One&family=Stick&family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,20 +19,20 @@
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at 10% 10%, #ffe5ef 0 2px, transparent 3px),
-    #fff8fb;
-  color: #6f5964;
-  font-family:
-    "Zen Maru Gothic",
-    sans-serif;
+  background: #fff7fb;
+  color: #6d5863;
+  font-family: "Zen Maru Gothic", sans-serif;
 }
 
 .wrapper {
-  width: min(92%, 620px);
+  width: min(94%, 650px);
   margin: auto;
-  padding: 28px 0 50px;
+  padding: 25px 0 50px;
 }
+
+/* --------------------
+   HEADER
+-------------------- */
 
 header {
   text-align: center;
@@ -41,27 +40,31 @@ header {
 }
 
 .logo-small {
-  color: #d39ab1;
+  color: #d39ab2;
   font-size: 11px;
   letter-spacing: 3px;
 }
 
 h1 {
   margin: 6px 0;
-  color: #c9799a;
+  color: #c8799a;
   font-family: "Mochiy Pop One", sans-serif;
   font-size: 30px;
 }
 
 header p {
   margin: 0;
-  color: #ad8999;
+  color: #ae8c9a;
   font-size: 12px;
 }
 
+/* --------------------
+   CARD
+-------------------- */
+
 .card {
-  background: rgba(255,255,255,.95);
-  border: 1px solid #f1dce6;
+  background: rgba(255,255,255,.96);
+  border: 1px solid #f0dce6;
   border-radius: 25px;
   padding: 20px;
   margin-bottom: 16px;
@@ -70,11 +73,15 @@ header p {
 
 .label {
   display: block;
+  margin-bottom: 10px;
   color: #b87591;
-  font-weight: bold;
   font-size: 13px;
-  margin-bottom: 9px;
+  font-weight: bold;
 }
+
+/* --------------------
+   INPUT
+-------------------- */
 
 textarea {
   width: 100%;
@@ -85,7 +92,7 @@ textarea {
   border-radius: 17px;
   outline: none;
   background: #fffafd;
-  color: #6e5863;
+  color: #6d5863;
   font-family: "Zen Maru Gothic", sans-serif;
   font-size: 16px;
   line-height: 1.7;
@@ -95,13 +102,17 @@ textarea:focus {
   border-color: #d89db5;
 }
 
+/* --------------------
+   CONTROLS
+-------------------- */
+
 .control {
   margin-top: 17px;
 }
 
 .control-title {
   display: block;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
   color: #ad718d;
   font-size: 12px;
   font-weight: bold;
@@ -113,7 +124,7 @@ select {
   border: 1px solid #eed8e2;
   border-radius: 13px;
   background: #fffafd;
-  color: #6e5863;
+  color: #6d5863;
   font-family: inherit;
 }
 
@@ -125,7 +136,14 @@ select {
 
 input[type="range"] {
   flex: 1;
-  accent-color: #d89bb4;
+  accent-color: #d69ab4;
+}
+
+.value {
+  width: 45px;
+  text-align: right;
+  font-size: 12px;
+  color: #b27690;
 }
 
 input[type="color"] {
@@ -137,12 +155,14 @@ input[type="color"] {
   background: white;
 }
 
-.value {
-  width: 45px;
-  text-align: right;
+.color-label {
   font-size: 12px;
-  color: #b27690;
+  color: #806b74;
 }
+
+/* --------------------
+   CHECKBOX
+-------------------- */
 
 .check {
   display: flex;
@@ -156,6 +176,10 @@ input[type="color"] {
   accent-color: #d596b0;
 }
 
+/* --------------------
+   PREVIEW
+-------------------- */
+
 .preview {
   width: 100%;
   overflow: hidden;
@@ -163,18 +187,20 @@ input[type="color"] {
 }
 
 canvas {
+  display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
   border-radius: 17px;
 
   background-image:
-    linear-gradient(45deg, #f2e7ec 25%, transparent 25%),
-    linear-gradient(-45deg, #f2e7ec 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #f2e7ec 75%),
-    linear-gradient(-45deg, transparent 75%, #f2e7ec 75%);
+    linear-gradient(45deg,#f1e6eb 25%,transparent 25%),
+    linear-gradient(-45deg,#f1e6eb 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#f1e6eb 75%),
+    linear-gradient(-45deg,transparent 75%,#f1e6eb 75%);
 
   background-size: 24px 24px;
+
   background-position:
     0 0,
     0 12px,
@@ -184,24 +210,28 @@ canvas {
   border: 1px solid #efdce5;
 }
 
+/* --------------------
+   BUTTONS
+-------------------- */
+
 button {
   width: 100%;
   border: 0;
   border-radius: 999px;
   padding: 14px;
-  margin-top: 16px;
+  margin-top: 17px;
   font-family: inherit;
   font-weight: bold;
   cursor: pointer;
 }
 
 .make {
-  background: #d79ab3;
+  background: #d89bb5;
   color: white;
 }
 
 .save {
-  background: #f3d5e1;
+  background: #f2d3df;
   color: #9d647d;
 }
 
@@ -209,19 +239,38 @@ button {
   min-height: 18px;
   margin-top: 9px;
   text-align: center;
-  color: #c17d99;
+  color: #c27d98;
   font-size: 11px;
 }
 
+/* --------------------
+   FONT PREVIEW
+-------------------- */
+
+.font-preview {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fff6fa;
+  color: #c27e99;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* --------------------
+   FOOTER
+-------------------- */
+
 footer {
   text-align: center;
-  color: #c9a7b5;
+  color: #c8a7b5;
   font-size: 10px;
   letter-spacing: 1px;
 }
 
 </style>
 </head>
+
 
 <body>
 
@@ -236,174 +285,334 @@ footer {
   <h1>Cute-moji</h1>
 
   <p>
-    文字をかわいい画像素材にしよう 🎀
+    かわいい文字素材を作ろう 🎀
   </p>
 
 </header>
 
 
-<!-- 入力 -->
+<!-- ====================
+     TEXT
+==================== -->
 
 <section class="card">
 
-  <label class="label">
-    ♡ 文字を入力
-  </label>
+<label class="label">
+♡ 文字を入力
+</label>
 
-  <textarea
-    id="text"
-    placeholder="例：お誕生日おめでとう♡"
-  ></textarea>
-
-
-  <!-- フォント -->
-
-  <div class="control">
-
-    <span class="control-title">
-      ♡ 文字の雰囲気
-    </span>
-
-    <select id="font">
-
-      <option value="mochiy">
-        🎀 ぷっくり量産型
-      </option>
-
-      <option value="yomogi">
-        🌷 ゆるふわ手書き
-      </option>
-
-      <option value="klee">
-        ♡ おしゃれ手書き
-      </option>
-
-      <option value="maru">
-        🩷 ふわふわ丸文字
-      </option>
-
-    </select>
-
-  </div>
+<textarea
+id="text"
+placeholder="例：お誕生日おめでとう♡"
+></textarea>
 
 
-  <!-- サイズ -->
+<!-- ====================
+     FONT
+==================== -->
 
-  <div class="control">
+<div class="control">
 
-    <span class="control-title">
-      ♡ 文字サイズ
-    </span>
+<span class="control-title">
+♡ フォント
+</span>
 
-    <div class="row">
+<select id="font">
 
-      <input
-        id="size"
-        type="range"
-        min="35"
-        max="120"
-        value="65"
-      >
+<option value="Mochiy Pop One">
+🎀 ぷっくり量産型
+</option>
 
-      <span
-        id="sizeValue"
-        class="value"
-      >
-        65px
-      </span>
+<option value="Yomogi">
+🌷 ゆるふわ手書き
+</option>
 
-    </div>
+<option value="Klee One">
+♡ おしゃれ手書き
+</option>
 
-  </div>
+<option value="Playpen Sans JP">
+🩷 かわいい手書き
+</option>
 
+<option value="Zen Maru Gothic">
+🫧 ふわふわ丸文字
+</option>
 
-  <!-- 色 -->
+<option value="Rampart One">
+✨ ぷっくりポップ
+</option>
 
-  <div class="control">
+<option value="Stick">
+🍓 ころころポップ
+</option>
 
-    <span class="control-title">
-      ♡ 文字色
-    </span>
+<option value="DotGothic16">
+🎮 ちょいレトロ
+</option>
 
-    <div class="row">
-
-      <input
-        id="color"
-        type="color"
-        value="#d58ba8"
-      >
-
-      <span>
-        好きな色にできるよ ♡
-      </span>
-
-    </div>
-
-  </div>
+</select>
 
 
-  <!-- 透明 -->
+<div
+id="fontPreview"
+class="font-preview"
+>
+かわいい文字 ♡
+</div>
 
-  <label class="check">
-
-    <input
-      id="transparent"
-      type="checkbox"
-      checked
-    >
-
-    背景を透明にする ♡
-
-  </label>
+</div>
 
 
-  <button
-    class="make"
-    onclick="draw()"
-  >
-    ♡ 画像を作る ♡
-  </button>
+<!-- ====================
+     SIZE
+==================== -->
+
+<div class="control">
+
+<span class="control-title">
+♡ 文字サイズ
+</span>
+
+<div class="row">
+
+<input
+id="size"
+type="range"
+min="35"
+max="130"
+value="65"
+>
+
+<span
+id="sizeValue"
+class="value"
+>
+65px
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ====================
+     TEXT COLOR
+==================== -->
+
+<div class="control">
+
+<span class="control-title">
+♡ 文字色
+</span>
+
+<div class="row">
+
+<input
+id="color"
+type="color"
+value="#d58ba8"
+>
+
+<span class="color-label">
+好きな色にできるよ ♡
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ====================
+     OUTLINE
+==================== -->
+
+<div class="control">
+
+<span class="control-title">
+♡ 白ふちの太さ
+</span>
+
+<div class="row">
+
+<input
+id="outline"
+type="range"
+min="0"
+max="30"
+value="12"
+>
+
+<span
+id="outlineValue"
+class="value"
+>
+12px
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ====================
+     GLOW
+==================== -->
+
+<div class="control">
+
+<span class="control-title">
+♡ 光らせ方
+</span>
+
+<select id="glow">
+
+<option value="none">
+✦ 光らせない
+</option>
+
+<option value="soft">
+♡ ふんわり光る
+</option>
+
+<option value="strong">
+✨ 強めに光る
+</option>
+
+<option value="dream">
+🫧 ふわっと発光
+</option>
+
+</select>
+
+</div>
+
+
+<!-- ====================
+     GLOW COLOR
+==================== -->
+
+<div class="control">
+
+<span class="control-title">
+♡ 光の色
+</span>
+
+<div class="row">
+
+<input
+id="glowColor"
+type="color"
+value="#ffffff"
+>
+
+<span class="color-label">
+光の色も変更できるよ ✨
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ====================
+     GLOW POWER
+==================== -->
+
+<div class="control">
+
+<span class="control-title">
+♡ 光の強さ
+</span>
+
+<div class="row">
+
+<input
+id="glowPower"
+type="range"
+min="0"
+max="40"
+value="18"
+>
+
+<span
+id="glowPowerValue"
+class="value"
+>
+18
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ====================
+     TRANSPARENT
+==================== -->
+
+<label class="check">
+
+<input
+id="transparent"
+type="checkbox"
+checked
+>
+
+背景を透明にする ♡
+
+</label>
+
+
+<button
+class="make"
+onclick="draw()"
+>
+♡ 画像を作る ♡
+</button>
 
 </section>
 
 
-<!-- プレビュー -->
+<!-- ====================
+     PREVIEW
+==================== -->
 
 <section class="card">
 
-  <label class="label">
-    ♡ プレビュー
-  </label>
+<label class="label">
+♡ プレビュー
+</label>
 
-  <div class="preview">
+<div class="preview">
 
-    <canvas
-      id="canvas"
-      width="1200"
-      height="600"
-    ></canvas>
+<canvas
+id="canvas"
+width="1200"
+height="600"
+></canvas>
 
-  </div>
-
-
-  <button
-    class="save"
-    onclick="save()"
-  >
-    ♡ PNG画像として保存する ♡
-  </button>
+</div>
 
 
-  <div
-    id="message"
-    class="message"
-  ></div>
+<button
+class="save"
+onclick="saveImage()"
+>
+♡ PNG画像として保存する ♡
+</button>
+
+
+<div
+id="message"
+class="message"
+></div>
 
 </section>
 
 
 <footer>
-  made with ♡ Cute-moji
+made with ♡ Cute-moji
 </footer>
 
 </div>
@@ -411,287 +620,419 @@ footer {
 
 <script>
 
+/* ====================
+   ELEMENTS
+==================== */
+
 const canvas =
-  document.getElementById("canvas");
+document.getElementById("canvas");
 
 const ctx =
-  canvas.getContext("2d");
+canvas.getContext("2d");
 
 const text =
-  document.getElementById("text");
+document.getElementById("text");
 
 const font =
-  document.getElementById("font");
+document.getElementById("font");
 
 const size =
-  document.getElementById("size");
+document.getElementById("size");
 
 const sizeValue =
-  document.getElementById("sizeValue");
+document.getElementById("sizeValue");
 
 const color =
-  document.getElementById("color");
+document.getElementById("color");
+
+const outline =
+document.getElementById("outline");
+
+const outlineValue =
+document.getElementById("outlineValue");
+
+const glow =
+document.getElementById("glow");
+
+const glowColor =
+document.getElementById("glowColor");
+
+const glowPower =
+document.getElementById("glowPower");
+
+const glowPowerValue =
+document.getElementById("glowPowerValue");
 
 const transparent =
-  document.getElementById("transparent");
+document.getElementById("transparent");
+
+const fontPreview =
+document.getElementById("fontPreview");
 
 const message =
-  document.getElementById("message");
+document.getElementById("message");
 
 
-/* フォント名 */
+/* ====================
+   FONT PREVIEW
+==================== */
 
-function getFontName() {
+function updateFontPreview() {
 
-  switch (font.value) {
+fontPreview.style.fontFamily =
+`"${font.value}"`;
 
-    case "mochiy":
-      return "Mochiy Pop One";
-
-    case "yomogi":
-      return "Yomogi";
-
-    case "klee":
-      return "Klee One";
-
-    case "maru":
-      return "Zen Maru Gothic";
-
-    default:
-      return "Zen Maru Gothic";
-
-  }
+fontPreview.textContent =
+"かわいい文字 ♡";
 
 }
 
 
-/* 文字を改行 */
+/* ====================
+   LINE BREAK
+==================== */
 
-function makeLines(str, maxWidth) {
+function makeLines(
+textValue,
+maxWidth
+) {
 
-  const lines = [];
+const lines = [];
 
-  let current = "";
+let current = "";
 
-  for (const char of str) {
+for (const char of textValue) {
 
-    const test =
-      current + char;
+const test =
+current + char;
 
-    if (
-      ctx.measureText(test).width > maxWidth &&
-      current !== ""
-    ) {
+if (
+ctx.measureText(test).width >
+maxWidth &&
+current !== ""
+) {
 
-      lines.push(current);
+lines.push(current);
 
-      current = char;
+current = char;
 
-    } else {
+} else {
 
-      current = test;
+current = test;
 
-    }
+}
 
-  }
+}
 
-  if (current) {
-    lines.push(current);
-  }
+if (current) {
+lines.push(current);
+}
 
-  return lines;
+return lines;
 
 }
 
 
-/* 画像を描画 */
+/* ====================
+   DRAW
+==================== */
 
 async function draw() {
 
-  /*
-    Google Fontsの読み込みが
-    完了してからCanvasに描く
-  */
+await document.fonts.ready;
 
-  await document.fonts.ready;
-
-  ctx.clearRect(
-    0,
-    0,
-    canvas.width,
-    canvas.height
-  );
-
-
-  if (!transparent.checked) {
-
-    ctx.fillStyle =
-      "#fff7fb";
-
-    ctx.fillRect(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    );
-
-  }
-
-
-  const fontSize =
-    Number(size.value);
-
-  const fontName =
-    getFontName();
-
-
-  ctx.font =
-    `${fontSize}px "${fontName}"`;
-
-  ctx.textAlign =
-    "center";
-
-  ctx.textBaseline =
-    "middle";
-
-
-  const input =
-    text.value.trim() ||
-    "ここに文字が入るよ ♡";
-
-
-  const lines =
-    makeLines(
-      input,
-      1050
-    );
-
-
-  const lineHeight =
-    fontSize * 1.45;
-
-
-  const totalHeight =
-    lines.length * lineHeight;
-
-
-  const startY =
-    canvas.height / 2 -
-    totalHeight / 2 +
-    lineHeight / 2;
-
-
-  lines.forEach((line, index) => {
-
-    const y =
-      startY +
-      index * lineHeight;
-
-
-    /*
-      白いふちをつける
-      → 写真に貼ったとき見やすい
-    */
-
-    ctx.lineWidth = 18;
-
-    ctx.strokeStyle =
-      "rgba(255,255,255,.95)";
-
-    ctx.strokeText(
-      line,
-      canvas.width / 2,
-      y
-    );
-
-
-    ctx.fillStyle =
-      color.value;
-
-    ctx.fillText(
-      line,
-      canvas.width / 2,
-      y
-    );
-
-  });
-
-}
-
-
-/* 保存 */
-
-function save() {
-
-  const link =
-    document.createElement("a");
-
-  link.download =
-    "Cute-moji.png";
-
-  link.href =
-    canvas.toDataURL(
-      "image/png"
-    );
-
-  link.click();
-
-
-  message.textContent =
-    "保存したよ ♡";
-
-  setTimeout(() => {
-
-    message.textContent = "";
-
-  }, 2000);
-
-}
-
-
-/* サイズ表示 */
-
-size.addEventListener(
-  "input",
-  () => {
-
-    sizeValue.textContent =
-      size.value + "px";
-
-    draw();
-
-  }
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
 );
 
 
-/* 自動更新 */
+/* BACKGROUND */
+
+if (!transparent.checked) {
+
+ctx.fillStyle =
+"#fff7fb";
+
+ctx.fillRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+}
+
+
+/* FONT */
+
+const fontSize =
+Number(size.value);
+
+const fontName =
+font.value;
+
+ctx.font =
+`${fontSize}px "${fontName}"`;
+
+ctx.textAlign =
+"center";
+
+ctx.textBaseline =
+"middle";
+
+
+/* TEXT */
+
+const input =
+text.value.trim() ||
+"ここに文字が入るよ ♡";
+
+
+const lines =
+makeLines(
+input,
+1050
+);
+
+
+const lineHeight =
+fontSize * 1.45;
+
+const totalHeight =
+lines.length * lineHeight;
+
+const startY =
+canvas.height / 2 -
+totalHeight / 2 +
+lineHeight / 2;
+
+
+/* GLOW */
+
+let shadowBlur = 0;
+
+if (glow.value === "soft") {
+
+shadowBlur =
+Number(glowPower.value) * 0.7;
+
+}
+
+if (glow.value === "strong") {
+
+shadowBlur =
+Number(glowPower.value) * 1.5;
+
+}
+
+if (glow.value === "dream") {
+
+shadowBlur =
+Number(glowPower.value);
+
+}
+
+
+/* DRAW EACH LINE */
+
+lines.forEach(
+(line,index) => {
+
+const y =
+startY +
+index * lineHeight;
+
+
+/* GLOW */
+
+if (glow.value !== "none") {
+
+ctx.save();
+
+ctx.shadowColor =
+glowColor.value;
+
+ctx.shadowBlur =
+shadowBlur;
+
+ctx.fillStyle =
+glowColor.value;
+
+ctx.fillText(
+line,
+canvas.width / 2,
+y
+);
+
+ctx.restore();
+
+}
+
+
+/* WHITE OUTLINE */
+
+const outlineSize =
+Number(outline.value);
+
+if (outlineSize > 0) {
+
+ctx.lineWidth =
+outlineSize;
+
+ctx.strokeStyle =
+"rgba(255,255,255,.96)";
+
+ctx.strokeText(
+line,
+canvas.width / 2,
+y
+);
+
+}
+
+
+/* MAIN TEXT */
+
+ctx.fillStyle =
+color.value;
+
+ctx.fillText(
+line,
+canvas.width / 2,
+y
+);
+
+});
+
+}
+
+
+/* ====================
+   SAVE
+==================== */
+
+function saveImage() {
+
+const link =
+document.createElement("a");
+
+link.download =
+"Cute-moji.png";
+
+link.href =
+canvas.toDataURL(
+"image/png"
+);
+
+link.click();
+
+
+message.textContent =
+"PNG画像を保存したよ ♡";
+
+setTimeout(
+() => {
+
+message.textContent = "";
+
+},
+2000
+);
+
+}
+
+
+/* ====================
+   EVENTS
+==================== */
+
+size.addEventListener(
+"input",
+() => {
+
+sizeValue.textContent =
+size.value + "px";
+
+draw();
+
+});
+
+
+outline.addEventListener(
+"input",
+() => {
+
+outlineValue.textContent =
+outline.value + "px";
+
+draw();
+
+});
+
+
+glowPower.addEventListener(
+"input",
+() => {
+
+glowPowerValue.textContent =
+glowPower.value;
+
+draw();
+
+});
+
 
 text.addEventListener(
-  "input",
-  draw
+"input",
+draw
 );
 
 font.addEventListener(
-  "change",
-  draw
-);
+"change",
+() => {
+
+updateFontPreview();
+
+draw();
+
+});
 
 color.addEventListener(
-  "input",
-  draw
+"input",
+draw
+);
+
+glow.addEventListener(
+"change",
+draw
+);
+
+glowColor.addEventListener(
+"input",
+draw
 );
 
 transparent.addEventListener(
-  "change",
-  draw
+"change",
+draw
 );
 
 
-/* 最初の画像 */
+/* ====================
+   START
+==================== */
 
 document.fonts.ready.then(
-  draw
-);
+() => {
+
+updateFontPreview();
+
+draw();
+
+});
 
 </script>
 
