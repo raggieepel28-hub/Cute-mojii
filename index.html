@@ -166,24 +166,27 @@ input[type="color"] {
   font-size: 20px;
 }
 
+/* プレビュー */
+
 .preview {
   width: 100%;
   overflow: hidden;
   text-align: center;
+  border-radius: 17px;
 }
 
-canvas {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  border-radius: 17px;
+/*
+  これは「透明ですよ」と
+  見せるためだけの背景。
+  PNGには保存されません。
+*/
 
+.preview.transparent-view {
   background-image:
-    linear-gradient(45deg,#f1e6eb 25%,transparent 25%),
-    linear-gradient(-45deg,#f1e6eb 25%,transparent 25%),
-    linear-gradient(45deg,transparent 75%,#f1e6eb 75%),
-    linear-gradient(-45deg,transparent 75%,#f1e6eb 75%);
+    linear-gradient(45deg, #eadfe4 25%, transparent 25%),
+    linear-gradient(-45deg, #eadfe4 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #eadfe4 75%),
+    linear-gradient(-45deg, transparent 75%, #eadfe4 75%);
 
   background-size: 24px 24px;
 
@@ -192,8 +195,18 @@ canvas {
     0 12px,
     12px -12px,
     -12px 0;
+}
 
-  border: 1px solid #efdce5;
+.preview.white-view {
+  background: #fff7fb;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 17px;
 }
 
 button {
@@ -304,6 +317,7 @@ placeholder="例：お誕生日おめでとう♡"
 </option>
 
 </select>
+
 
 <div
 id="fontPreview"
@@ -503,7 +517,10 @@ onclick="draw()"
 ♡ プレビュー
 </label>
 
-<div class="preview">
+<div
+id="preview"
+class="preview transparent-view"
+>
 
 <canvas
 id="canvas"
@@ -583,28 +600,28 @@ document.getElementById("transparent");
 const fontPreview =
 document.getElementById("fontPreview");
 
+const preview =
+document.getElementById("preview");
+
 const message =
 document.getElementById("message");
 
 
-/* -------------------------
-   フォント表示
-------------------------- */
+/* =========================
+   フォントプレビュー
+========================= */
 
 function updateFontPreview() {
 
   fontPreview.style.fontFamily =
     `"${font.value}"`;
 
-  fontPreview.textContent =
-    "かわいい文字 ♡";
-
 }
 
 
-/* -------------------------
+/* =========================
    改行
-------------------------- */
+========================= */
 
 function makeLines(
   value,
@@ -647,9 +664,9 @@ function makeLines(
 }
 
 
-/* -------------------------
-   ネオン描画
-------------------------- */
+/* =========================
+   ネオン
+========================= */
 
 function drawNeon(
   line,
@@ -695,9 +712,7 @@ function drawNeon(
   }
 
 
-  /*
-    外側のぼわっとした光
-  */
+  /* 外側 */
 
   ctx.save();
 
@@ -722,9 +737,7 @@ function drawNeon(
   ctx.restore();
 
 
-  /*
-    中間の強い光
-  */
+  /* 中間 */
 
   ctx.save();
 
@@ -749,9 +762,7 @@ function drawNeon(
   ctx.restore();
 
 
-  /*
-    文字のすぐ外側の光
-  */
+  /* 内側 */
 
   ctx.save();
 
@@ -778,14 +789,22 @@ function drawNeon(
 }
 
 
-/* -------------------------
-   メイン描画
-------------------------- */
+/* =========================
+   描画
+========================= */
 
 async function draw() {
 
   await document.fonts.ready;
 
+
+  /*
+    Canvasを完全にクリアする。
+
+    ここが重要。
+    透明にしたい場合は
+    白く塗らない。
+  */
 
   ctx.clearRect(
     0,
@@ -796,7 +815,8 @@ async function draw() {
 
 
   /*
-    背景
+    背景を透明にしない場合だけ
+    白背景を描く。
   */
 
   if (!transparent.checked) {
@@ -814,9 +834,7 @@ async function draw() {
   }
 
 
-  /*
-    フォント
-  */
+  /* フォント */
 
   const fontSize =
     Number(size.value);
@@ -860,7 +878,7 @@ async function draw() {
 
 
   /*
-    各行
+    各行を描画
   */
 
   lines.forEach(
@@ -889,7 +907,7 @@ async function draw() {
 
 
       /*
-        ② 白い縁
+        ② 白ふち
       */
 
       const outlineSize =
@@ -917,7 +935,7 @@ async function draw() {
 
 
       /*
-        ③ 本体
+        ③ メイン文字
       */
 
       ctx.save();
@@ -935,20 +953,60 @@ async function draw() {
 
     });
 
+
+  /*
+    プレビュー背景だけ変更。
+
+    Canvasそのものには
+    背景を描いていない。
+  */
+
+  if (transparent.checked) {
+
+    preview.classList.add(
+      "transparent-view"
+    );
+
+    preview.classList.remove(
+      "white-view"
+    );
+
+  } else {
+
+    preview.classList.add(
+      "white-view"
+    );
+
+    preview.classList.remove(
+      "transparent-view"
+    );
+
+  }
+
 }
 
 
-/* -------------------------
-   保存
-------------------------- */
+/* =========================
+   PNG保存
+========================= */
 
 function saveImage() {
+
+  /*
+    canvas.toDataURL() は
+    Canvas内部の画像だけを保存する。
+
+    プレビューのチェック柄は
+    CSSなのでPNGには入らない。
+  */
 
   const link =
     document.createElement("a");
 
   link.download =
-    "Cute-moji-neon.png";
+    transparent.checked
+      ? "Cute-moji-transparent.png"
+      : "Cute-moji.png";
 
   link.href =
     canvas.toDataURL(
@@ -959,7 +1017,10 @@ function saveImage() {
 
 
   message.textContent =
-    "PNG画像を保存したよ ♡";
+    transparent.checked
+      ? "背景透明のPNGを保存したよ ♡"
+      : "PNG画像を保存したよ ♡";
+
 
   setTimeout(
     () => {
@@ -967,20 +1028,21 @@ function saveImage() {
       message.textContent = "";
 
     },
-    2000
+    2500
   );
 
 }
 
 
-/* -------------------------
+/* =========================
    イベント
-------------------------- */
+========================= */
 
 text.addEventListener(
   "input",
   draw
 );
+
 
 font.addEventListener(
   "change",
@@ -993,20 +1055,24 @@ font.addEventListener(
   }
 );
 
+
 color.addEventListener(
   "input",
   draw
 );
+
 
 glow.addEventListener(
   "change",
   draw
 );
 
+
 glowColor.addEventListener(
   "input",
   draw
 );
+
 
 transparent.addEventListener(
   "change",
@@ -1053,9 +1119,9 @@ glowPower.addEventListener(
 );
 
 
-/* -------------------------
-   起動
-------------------------- */
+/* =========================
+   最初に実行
+========================= */
 
 document.fonts.ready.then(
   () => {
